@@ -1,0 +1,18 @@
+interface WeatherReport {
+    date: Date!
+    latitude: Float!
+    longitude: Float!
+    temp: Float
+    feelsLike: Float
+    description: String
+    units: String
+}
+
+type OpenWeatherMapReport implements WeatherReport {}
+
+type Query {
+    weatherReport (latitude: Float!, longitude: Float!): WeatherReport
+    openWeatherMapReport (latitude: Float!, longitude: Float!): OpenWeatherMapReport
+        @supplies (query: "weatherReport")
+        @connector(type: "__openweathermap_weather_location_connector__", configuration: "owm_default")
+}
