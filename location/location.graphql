@@ -8,11 +8,6 @@ interface Location {
     postalCode: String
 }
 
-type IpApi implements Location {}
-
 type Query {
     location (ip: String!): Location
-    ipApi (ip: String!): IpApi
-        @supplies (query: "location")
-        @connector (type: "__ipapi_location_ip_connector__", configuration: "ipapi_default")
 }
