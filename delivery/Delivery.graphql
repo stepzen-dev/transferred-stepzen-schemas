@@ -1,0 +1,7 @@
+interface Delivery {
+  status: String!
+  statusDate: Date!
+}
+type Query {
+  delivery(carrier: String!, trackingId: String!): Delivery
+}
