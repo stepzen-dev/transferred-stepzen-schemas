@@ -1,6 +1,6 @@
-type FedEx implements Delivery {}
+type DeliveryFedEx implements Delivery {}
 type Query {
-    fedex (carrier: String!, trackingId: String!): FedEx
+    deliveryFedEx (carrier: String!, trackingId: String!): DeliveryFedEx
         @supplies (query: "delivery")
         @connector(type:"fedex", configuration: "fedex_default")
 }
