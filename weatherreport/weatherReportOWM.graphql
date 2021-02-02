@@ -1,7 +1,7 @@
-type OpenWeatherMapReport implements WeatherReport {}
+type WeatherReportOWM implements WeatherReport {}
 
 type Query {
-    openWeatherMapReport (latitude: Float!, longitude: Float!): OpenWeatherMapReport
+    weatherReportOWM (latitude: Float!, longitude: Float!): WeatherReportOWM
         @supplies (query: "weatherReport")
         @connector(type: "__openweathermap_weather_location_connector__", configuration: "owm_default")
 }

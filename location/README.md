@@ -1,5 +1,5 @@
 # Location schema
 
 This schema provides the ability to retrieve location information given an IP address. It defines:
-- an interface for location information in the file `location.graphql`. 
-- a concrete type that implements that interface using the IpApi API in the file `locationIpApi.graphql`
+- a Location interface for location information in the file `Location.graphql`. 
+- a concrete type, LocationIpApi that implements the Location interface using the IpApi API in the file `LocationIpApi.graphql`

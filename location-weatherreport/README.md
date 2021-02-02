@@ -1,3 +1,3 @@
 # Location-weatherreport
 
-This schema extends the Location schema with the Weatherreport schema
+This schema extends the Location interface with the WeatherReport interface
