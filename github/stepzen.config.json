@@ -1,0 +1,11 @@
+{
+    "config": {
+      "query": "repositories(type:\"public\") { id name node_id private }",
+      "questions": [
+        {
+          "name": "github_config.Authorization",
+          "message": "Add personal token for github API with the format - Bearer XXXX"
+        }
+      ]
+    } 
+  }

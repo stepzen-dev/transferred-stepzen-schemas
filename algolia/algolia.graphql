@@ -1,0 +1,18 @@
+interface Hit {
+    first_name: String
+    last_name: String
+    email: String
+    company_name: String
+    objectID: String
+}
+type AlgoliaHit implements Hit {}
+type Query {
+    hit (objectId: String!, indexName: String!): Hit
+    algoliaHit (objectId: String!, indexName: String!): AlgoliaHit
+        @supplies (query: "hit")
+        @rest (
+            resultroot: ""
+            endpoint: 
+            "https://$api_key;-dsn.algolia.net/1/indexes/$indexName/$objectId?X-Algolia-API-Key=$api_key&X-Algolia-Application-Id=$app_id"
+            configuration: "algolia_config")
+}

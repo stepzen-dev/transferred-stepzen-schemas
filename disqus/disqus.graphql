@@ -1,0 +1,19 @@
+interface Post {
+   id: ID!
+   message: String
+}
+type DisqusPost implements Post {}
+type Query {
+    post (forum: String!): Post
+    disqusPost (forum: String!): DisqusPost
+        @supplies (query: "post")
+        @rest (
+            setters: [
+              {field: "message", path: "response[].message"},
+              {field: "id", path: "response[].id"}
+            ]
+            resultroot: ""
+            endpoint: 
+            "https://disqus.com/api/3.0/forums/listPosts.json?forum=$forum&api_key=$api_key"
+            configuration: "disqus_config")
+}

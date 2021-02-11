@@ -1,0 +1,15 @@
+{
+    "config": {
+      "query": "hit(objectId: \"\", indexName: \"\") { first_name last_name email company_name objectID}",
+      "questions": [
+        {
+          "name": "algolia_config.api_key",
+          "message": "What is the X-Algolia-API-Key for your Algolia instance?"
+        },
+        {
+          "name": "algolia_config.app_id",
+          "message": "What is the X-Algolia-Application-Id for your Algolia instance?"
+        }
+      ]
+    } 
+  }

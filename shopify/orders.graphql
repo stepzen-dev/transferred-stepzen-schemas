@@ -1,0 +1,81 @@
+interface Refund {
+    id: ID!
+    orderId: ID
+    note: String
+    user_id: String
+    created_at: Date
+}
+type ShopifyRefund implements Refund {}
+interface RefundedOrder {
+    id: ID!
+    createdOn: Date
+    email: String
+    customerId: ID!
+    totalDiscounts: String
+    refundId: ID
+}
+type ShopifyRefundedOrder implements RefundedOrder {}
+interface Order {
+    id: ID!
+    createdOn: Date
+    email: String
+    customerId: ID!
+    totalDiscounts: String
+}
+type ShopifyOrder implements Order {}
+type ShopifyOrderList implements Order {}
+type Query {
+    #### You can uncomment the below queries if you have refunded orders ####
+    # refunds (id: ID!): [Refund]
+    # shopifyOrderRefunds (id: ID!): ShopifyRefund
+    #     @supplies (query: "refunds")
+    #     @rest (
+    #         setters: [
+    #           {field: "orderId", path: "order_id"}
+    #         ]
+    #         resultroot: "refunds[]"
+    #         endpoint: 
+    #         "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/orders/$id/refunds.json"
+    #         configuration: "shopify_config")
+    # refund (id: ID!, refund_id: ID!): Refund
+    # shopifyOrderRefund (id: ID!, refund_id: ID!): ShopifyRefund
+    #     @supplies (query: "refund")
+    #     @rest (
+    #         resultroot: "refund"
+    #         endpoint: 
+    #         "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/orders/$id/refunds/$refund_id.json"
+    #         configuration: "shopify_config")
+    order (id: ID!): Order
+    shopifyOrder (id: ID!): ShopifyOrder
+        @supplies (query: "order")
+        @rest (
+            setters: [
+                {field: "totalDiscounts", path: "total_discounts"},
+                {field: "customerId", path: "customer.id"}
+            ]
+            resultroot: "order"
+            endpoint: 
+            "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/orders/$id.json?status=any"
+            configuration: "shopify_config")
+    refundedOrders (customerId: ID!): [RefundedOrder]
+    shopifyRefundedOrderByCustomer (customerId: ID!): [ShopifyRefundedOrder]
+        @supplies (query: "refundedOrders")
+        @rest (
+            setters: [
+                {field: "totalDiscounts", path: "total_discounts"},
+                {field: "customerId", path: "customer.id"},
+                {field: "refundId", path: "refunds[].id"}
+            ]
+            resultroot: "orders[]"
+            endpoint: 
+            "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/customers/$customerId/orders.json?status=any"
+            configuration: "shopify_config")
+    orders (customerId: ID!): [Order]
+    shopifyOrderByCustomer (customerId: ID!): [ShopifyOrder]
+        @supplies (query: "orders")
+        @rest (
+            resultroot: "orders[]"
+            endpoint: 
+            "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/customers/$customerId/orders.json?status=any"
+            configuration: "shopify_config")
+}

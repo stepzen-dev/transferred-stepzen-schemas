@@ -1,0 +1,11 @@
+{
+    "config": {
+      "query": "payer(id: \"00001\") { payer_id eligible_id }",
+      "questions": [
+        {
+          "name": "eligible_config.Authorization",
+          "message": "What is the api key to your eligible API?"
+        }
+      ]
+    } 
+  }
