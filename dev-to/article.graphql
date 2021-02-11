@@ -1,0 +1,46 @@
+interface Article {
+  id: ID!
+  title: String!
+  description: String
+  cover_image: String
+  readable_publish_date: String
+  tag_list: String
+  path: String!
+  slug: String!
+  url: String!
+  published_timestamp: Date!
+  username: String!
+  github_username: String!
+  user: User
+    @materializer(
+      query: "userByUsername"
+      arguments: [{ name: "username", field: "github_username" }]
+    )
+  body_html: String
+  body_markdown: String
+}
+type ArticleFromRest implements Article {}
+type Query {
+  publishedArticleById(id:ID!): Article
+  publishedArticleByIdFromRest(id: ID!): ArticleFromRest
+    @supplies (query: "publishedArticleById")
+    @rest(
+      endpoint: "https://dev.to/api/articles/$id"
+      setters: [{ field: "username", path: "user.username" }, { field: "github_username", path: "user.github_username" }]
+    )
+  publishedArticleByPath(path: String!): Article
+  publishedArticleByPathFromRest(path: String!): ArticleFromRest
+    @supplies (query: "publishedArticleByPath")
+    @rest(
+      endpoint: "https://dev.to/api/articles/$path"
+      setters: [{ field: "username", path: "user.username" }, { field: "github_username", path: "user.github_username" }]
+    )
+  myArticles: [Article]
+  myArticlesFromRest: [ArticleFromRest]
+    @supplies (query: "myArticles")
+    @rest(
+      endpoint: "https://dev.to/api/articles?username=$username"
+      setters: [{ field: "username", path: "user.username" }, { field: "github_username", path: "user.github_username" }, { field: "tag_list", path: "tags"}]
+      configuration: "dev_config"
+    )
+}
