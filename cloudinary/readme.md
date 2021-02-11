@@ -10,3 +10,5 @@
       api_secret: {{ api_secret }}
       cloud_name: {{ cloud_name }}
 ```
+
+Not signed up to the StepZen API? Sign up here - https://stepzen.com/request-invite

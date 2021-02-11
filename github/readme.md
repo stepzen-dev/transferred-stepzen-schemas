@@ -8,3 +8,5 @@
       name: github_config
       Authorization: Bearer {{bearer_token}}
 ```
+
+Not signed up to the StepZen API? Sign up here - https://stepzen.com/request-invite

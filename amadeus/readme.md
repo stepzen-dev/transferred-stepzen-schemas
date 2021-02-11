@@ -16,3 +16,5 @@ curl "https://test.api.amadeus.com/v1/security/oauth2/token" \
       name: amadeus_config
       Authorization: Bearer {{bearer_token}}
 ```
+
+Not signed up to the StepZen API? Sign up here - https://stepzen.com/request-invite

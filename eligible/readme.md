@@ -8,3 +8,5 @@
       name: eligible_config
       api_key: {{ api_key }}
 ```
+
+Not signed up to the StepZen API? Sign up here - https://stepzen.com/request-invite

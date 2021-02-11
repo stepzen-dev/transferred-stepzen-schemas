@@ -10,3 +10,5 @@
       api_key: anystring
       api_password: {{ auth_code }}
 ```
+
+Not signed up to the StepZen API? Sign up here - https://stepzen.com/request-invite

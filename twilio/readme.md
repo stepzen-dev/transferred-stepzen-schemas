@@ -9,3 +9,5 @@
       api_key: {{ account_sid }}
       api_secret: {{ auth_token }}
 ```
+
+Not signed up to the StepZen API? Sign up here - https://stepzen.com/request-invite
