@@ -20,7 +20,7 @@ The shopify admin API is completely free to set up.
 ```bash
 curl https://{{api_key}}:{{api_password}}@{{store_name}}.myshopify.com/admin/api/2021-01/orders.json
 ```
-6. Add the api key, password, and store name to your config file and deploy Stepzen!
+6. Add the api key, password, and store name to your config file and deploy StepZen!
 ```bash
 - configuration:
       name: shopify_config
