@@ -10,7 +10,7 @@ curl "https://test.api.amadeus.com/v1/security/oauth2/token" \
      -H "Content-Type: application/x-www-form-urlencoded" \
      -d "grant_type=client_credentials&client_id={{api_key}}&client_secret={{api_secret}}"
 ```
-5. Add the bearer token to your config.yaml file and deploy Stepzen! This bearer token will need to be regenerated upon expiration.
+5. Add the bearer token to your config.yaml file and deploy StepZen! This bearer token will need to be regenerated upon expiration.
 ```bash
   - configuration:  
       name: amadeus_config

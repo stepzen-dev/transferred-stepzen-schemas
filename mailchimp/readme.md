@@ -3,7 +3,7 @@
 1. Create a standard mailchimp account.
 2. Grab your authentication code here, https://{{ your_unique_server }}.admin.mailchimp.com/account/api/
 3. The code will be used as your api_password and you can use any string as your api_key
-4. Add the password to your config file and deploy Stepzen!
+4. Add the password to your config file and deploy StepZen!
 ```bash
 - configuration:  
       name: mailchimp_config
