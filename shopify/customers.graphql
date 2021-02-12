@@ -1,0 +1,26 @@
+interface Customer {
+    id: ID!
+    last_order_id: ID!
+    first_name: String!
+    last_name: String!
+    email: String!
+}
+type ShopifyCustomer implements Customer {}
+type ShopifyCustomerList implements Customer {}
+type Query {
+    customer (id: ID!): Customer
+    shopifyCustomer (id: ID!): ShopifyCustomer
+        @supplies (query: "customer")
+        @rest (
+            resultroot: "customer"
+            endpoint: 
+            "https://$api_key:$api_password@$store_name;.myshopify.com/admin/api/2020-01/customers/$id.json"
+            configuration: "shopify_config")
+    shopifyCustomerList (id: ID!): [ShopifyCustomer]
+        @supplies (query: "customer")
+        @rest (
+            resultroot: "customers[]"
+            endpoint: 
+            "https://$api_key:$api_password@$store_name;.myshopify.com/admin/api/2020-01/customers.json"
+            configuration: "shopify_config")
+}

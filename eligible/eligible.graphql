@@ -1,0 +1,35 @@
+interface Payer {
+    payer_id: String!
+    eligible_id: String!
+}
+type EligiblePayer implements Payer {}
+interface PaymentByClaim {
+    effective_date: Date
+    payerId: String!
+    payerName: String
+    payeeName: String
+    payeeNPI: String
+}
+type EligiblePaymentsByClaim implements PaymentByClaim {}
+type Query {
+    paymentByClaim (claimsId: String!, paymentReportId: String!): PaymentByClaim
+    eligiblePaymentsByClaim (claimsId: String!, paymentReportId: String!): EligiblePaymentsByClaim
+        @supplies (query: "paymentByClaim")
+        @rest (
+            setters: [
+              {field: "payerId", path: "payer.id"},
+              {field: "payerName", path: "payer.name"},
+              {field: "payeeName", path: "payee.name"},
+              {field: "payeeNPI", path: "payee.npi"}
+            ]
+            endpoint: 
+            "https://gds.eligibleapi.com/v1.5/claims/$claimsId/payment_reports/$paymentReportId?api_key=$api_key&test=true"
+            configuration: "eligible_config")
+    payer (id: String!): Payer
+    eligiblePayer (id: String!): EligiblePayer
+        @supplies (query: "payer")
+        @rest (
+            endpoint: 
+            "https://gds.eligibleapi.com/v1.5/payers/$id/search_options?api_key=$api_key"
+            configuration: "eligible_config")
+}

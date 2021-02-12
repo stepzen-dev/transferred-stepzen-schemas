@@ -1,0 +1,19 @@
+{
+    "config": {
+      "query": "shopifyOrder(id:2897056268425) { id email createdOn totalDiscounts customerId }",
+      "questions": [
+        {
+          "name": "shopify_config.api_key",
+          "message": "What is the api key for your shopify API?"
+        },
+        {
+          "name": "shopify_config.api_password",
+          "message": "What is the api password for your shopify API?"
+        },
+        {
+          "name": "shopify_config.store_name",
+          "message": "What is the store name for your shopify API?"
+        }
+      ]
+    } 
+  }

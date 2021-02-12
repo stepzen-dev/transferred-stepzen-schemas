@@ -1,0 +1,11 @@
+{
+    "config": {
+      "query": "flights(origin:\"PAR\") { type origin destination departureDate returnDate }",
+      "questions": [
+        {
+          "name": "amadeus_config.Authorization",
+          "message": "Add the bearer token for your amadeus API with the format - Bearer XXXX"
+        }
+      ]
+    } 
+  }

@@ -1,0 +1,46 @@
+interface Repository {
+    id: ID!
+    name: String
+    private: Boolean
+    node_id: String
+}
+type GithubRepo implements Repository {}
+interface User {
+    id: ID!
+    username: String
+    node_id: String
+    avatar_url: String
+}
+type GithubUser implements User {}
+interface Follower {
+    id: ID!
+    username: String
+    node_id: String
+    avatar_url: String
+}
+type GithubFollower implements Follower {}
+type Query {
+    user (username: String!): User
+    githubUser (username: String!): GithubUser
+        @supplies (query: "user")
+        @rest (
+            resultroot: ""
+            endpoint: 
+            "https://api.github.com/users/$username"
+            configuration: "github_config")
+    followers (username: String!): [Follower]
+    githubFollowers (username: String!): [GithubFollower]
+        @supplies (query: "followers")
+        @rest (
+            endpoint: 
+            "https://api.github.com/users/$username/followers"
+            configuration: "github_config")
+    # adding ?type=private to test bearer token authentication on Boolean type
+    repositories (type: String!): [Repository]
+    githubRepo (type: String!): [GithubRepo]
+        @supplies (query: "repositories")
+        @rest (
+            endpoint: 
+            "https://api.github.com/user/repos?type=$type"
+            configuration: "github_config")
+}

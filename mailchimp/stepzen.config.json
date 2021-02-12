@@ -1,0 +1,11 @@
+{
+    "config": {
+      "query": "lists(id: \"\") { name id web_id memberCount }",
+      "questions": [
+        {
+          "name": "mailchimp_config.api_password",
+          "message": "What is the authentication code for your mailchimp API?"
+        }
+      ]
+    } 
+  }

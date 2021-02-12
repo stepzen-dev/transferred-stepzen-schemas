@@ -1,0 +1,24 @@
+interface Product {
+    id: ID!
+    handle: String
+    title: String
+}
+type ShopifyProduct implements Product {}
+type ShopifyProductList implements Product {}
+type Query {
+    product (id: ID!): Product
+    shopifyProduct (id: ID!): ShopifyProduct
+        @supplies (query: "product")
+        @rest (
+            resultroot: "product"
+            endpoint: 
+            "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/products/$id.json"
+            configuration: "shopify_config")
+    shopifyProductList (id: ID!): [ShopifyProduct]
+        @supplies (query: "product")
+        @rest (
+            resultroot: "products[]"
+            endpoint: 
+            "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/products.json"
+            configuration: "shopify_config")
+}
