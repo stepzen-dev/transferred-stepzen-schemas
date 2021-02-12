@@ -10,10 +10,3 @@ Each schema directory must contain:
 
 ------
 
-## List of Schemas
-
-| Name | Description |
-| ----- | ------------ |
-| location | returns location info for an ip address
-| weatherreport  | returns current conditions for a | latitude/longitude
-location-weatherreport | extends the `location` type with `weatherreport`
