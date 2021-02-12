@@ -9,3 +9,7 @@
       X-Algolia-API-Key: {{ X-Algolia-API-Key }}
       X-Algolia-Application-Id: {{ X-Algolia-Application-Id }}
 ```
+
+
+Not signed up for StepZen? Try it free here -> https://stepzen.com/request-invite
+
