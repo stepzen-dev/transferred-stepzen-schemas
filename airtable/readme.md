@@ -11,3 +11,6 @@ Airtable has a great model of building out different bases for organizing tables
       Authorization: Bearer {{ Bearer }}
       table: {{ table }}
 ```
+
+Not signed up for StepZen? Try it free here -> https://stepzen.com/request-invite
+

@@ -8,3 +8,6 @@ configurationset:
       name: dev_api
       username: 'your dev username'
 ```
+
+Not signed up for StepZen? Try it free here -> https://stepzen.com/request-invite
+

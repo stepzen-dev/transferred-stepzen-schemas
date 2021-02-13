@@ -28,3 +28,7 @@ curl https://{{api_key}}:{{api_password}}@{{store_name}}.myshopify.com/admin/api
       api_password: {{ password }}
       store_name: {{ store_name }}
 ```
+
+
+Not signed up for StepZen? Try it free here -> https://stepzen.com/request-invite
+
