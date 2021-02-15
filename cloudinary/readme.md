@@ -11,4 +11,4 @@
       cloud_name: {{ cloud_name }}
 ```
 
-Not signed up to the StepZen API? Sign up here - https://stepzen.com/request-invite
+Not signed up for StepZen? Try it free here - https://stepzen.com/request-invite

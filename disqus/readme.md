@@ -9,4 +9,4 @@
       api_key: {{ api_key }}
 ```
 
-Not signed up to the StepZen API? Sign up here - https://stepzen.com/request-invite
+Not signed up for StepZen? Try it free here - https://stepzen.com/request-invite
