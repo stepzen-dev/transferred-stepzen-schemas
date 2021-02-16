@@ -1,0 +1,13 @@
+interface Page {
+    id: ID!
+}
+type WordpressPage implements Page {}
+type Query {
+    page (id: ID!): Page
+    wordpressPage (id: ID!): WordpressPage
+        @supplies (query: "page")
+        @rest (
+            resultroot: ""
+            endpoint: 
+            "https://$username;:$password;@wordpress.site.com/wp-json/wp/v2/pages/$id")
+}
