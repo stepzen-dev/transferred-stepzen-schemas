@@ -1,0 +1,15 @@
+{
+    "config": {
+      "query": "wordpressPage(id:4) { id }",
+      "questions": [
+        {
+          "name": "wordpress_config.username",
+          "message": "What is the wordpress username?"
+        },
+        {
+          "name": "wordpress_config.password",
+          "message": "What is the wordpress password?"
+        }
+      ]
+    } 
+  }
