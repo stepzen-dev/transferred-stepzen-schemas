@@ -9,7 +9,7 @@ type Query {
         @rest (
             resultroot: ""
             endpoint: 
-            "http://wpsample.stepzen.com/wp-json/wp/v2/pages/$id?_embed"
-            # Basic Auth - https://$username;:$password;@wpsample.stepzen.com/wp-json/wp/v2/pages/$id?_embed"
+            "http://143.198.12.235/wp-json/wp/v2/pages/$id?_embed"
+            # Basic Auth - https://$username;:$password;@143.198.12.235/wp-json/wp/v2/pages/$id?_embed"
             configuration: "wordpress_config")
 }
