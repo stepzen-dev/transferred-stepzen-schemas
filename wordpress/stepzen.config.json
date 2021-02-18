@@ -1,6 +1,6 @@
 {
     "config": {
-      "query": "wordpressPage(id:4) { id }",
+      "query": "wordpressPage(id:11241) { id }",
       "questions": [
         {
           "name": "wordpress_config.username",
