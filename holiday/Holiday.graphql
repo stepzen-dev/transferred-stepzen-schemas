@@ -5,5 +5,5 @@ interface Holiday {
   name: String!
 }
 type Query {
-  holidays(country: String!, month: Int!, year: Int!): [HolidayAPI]
+  holidays(country: String!, month: Int!, year: Int!): [Holiday]
 }
