@@ -1,0 +1,9 @@
+interface Holiday {
+  country: String!
+  month: Int!
+  year: Int!
+  name: String!
+}
+type Query {
+  holidays(country: String!, month: Int!, year: Int!): [HolidayAPI]
+}
