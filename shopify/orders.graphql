@@ -2,13 +2,13 @@ interface Refund {
     id: ID!
     orderId: ID
     note: String
-    user_id: String
-    created_at: Date
+    userId: String
+    createdAt: Date
 }
 type ShopifyRefund implements Refund {}
 interface RefundedOrder {
     id: ID!
-    created_at: Date
+    createdAt: Date
     email: String
     customerId: ID
     totalDiscounts: String
@@ -17,7 +17,7 @@ interface RefundedOrder {
 type ShopifyRefundedOrder implements RefundedOrder {}
 interface Order {
     id: ID!
-    created_at: Date
+    createdAt: Date
     email: String
     customerId: ID
     totalDiscounts: String
@@ -26,32 +26,40 @@ type ShopifyOrder implements Order {}
 type ShopifyOrderList implements Order {}
 type Query {
     #### You can uncomment the below queries if you have refunded orders ####
-    # refunds (orderId: ID!): [Refund]
-    # shopifyOrderRefunds (orderId: ID!): [ShopifyRefund]
-    #     @supplies (query: "refunds")
-    #     @rest (
-    #         setters: [
-    #           {field: "orderId", path: "order_id"}
-    #         ]
-    #         resultroot: "refunds[]"
-    #         endpoint: 
-    #         "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/orders/$orderId;/refunds.json"
-    #         configuration: "shopify_config")
-    # refund (orderId: ID!, refundId: ID!): Refund
-    # shopifyOrderRefund (orderId: ID!, refundId: ID!): ShopifyRefund
-    #     @supplies (query: "refund")
-    #     @rest (
-    #         resultroot: "refund"
-    #         endpoint: 
-    #         "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/orders/$orderId;/refunds/$refundId;.json"
-    #         configuration: "shopify_config")
+    refunds (orderId: ID!): [Refund]
+    shopifyOrderRefunds (orderId: ID!): [ShopifyRefund]
+        @supplies (query: "refunds")
+        @rest (
+            setters: [
+              {field: "orderId", path: "order_id"},
+              {field: "createdAt", path: "created_at"},
+              {field: "userId", path: "user_id"}
+            ]
+            resultroot: "refunds[]"
+            endpoint: 
+            "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/orders/$orderId;/refunds.json"
+            configuration: "shopify_config")
+    refund (orderId: ID!, refundId: ID!): Refund
+    shopifyOrderRefund (orderId: ID!, refundId: ID!): ShopifyRefund
+        @supplies (query: "refund")
+        @rest (
+            setters: [
+              {field: "orderId", path: "order_id"},
+              {field: "createdAt", path: "created_at"},
+              {field: "userId", path: "user_id"}
+            ]
+            resultroot: "refund"
+            endpoint: 
+            "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/orders/$orderId;/refunds/$refundId;.json"
+            configuration: "shopify_config")
     order (id: ID!): Order
     shopifyOrder (id: ID!): ShopifyOrder
         @supplies (query: "order")
         @rest (
             setters: [
                 {field: "totalDiscounts", path: "total_discounts"},
-                {field: "customerId", path: "customer.id"}
+                {field: "customerId", path: "customer.id"},
+                {field: "createdAt", path: "created_at"}
             ]
             resultroot: "order"
             endpoint: 
@@ -64,7 +72,8 @@ type Query {
             setters: [
                 {field: "totalDiscounts", path: "total_discounts"},
                 {field: "customerId", path: "customer.id"},
-                {field: "refundId", path: "refunds[].id"}
+                {field: "refundId", path: "refunds[].id"},
+                {field: "createdAt", path: "created_at"}
             ]
             resultroot: "orders[]"
             endpoint: 
@@ -77,7 +86,8 @@ type Query {
             resultroot: "orders[]"
             setters: [
                 {field: "totalDiscounts", path: "total_discounts"},
-                {field: "customerId", path: "customer.id"}
+                {field: "customerId", path: "customer.id"},
+                {field: "createdAt", path: "created_at"}
             ]
             endpoint: 
             "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/customers/$customerId/orders.json?status=any"

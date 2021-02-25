@@ -1,8 +1,8 @@
 interface Customer {
     id: ID!
-    last_order_id: ID
-    first_name: String
-    last_name: String
+    lastOrderId: ID
+    firstName: String
+    lastName: String
     email: String
 }
 type ShopifyCustomer implements Customer {}
@@ -11,6 +11,11 @@ type Query {
     shopifyCustomer (id: ID!): ShopifyCustomer
         @supplies (query: "customer")
         @rest (
+            setters: [
+              {field: "lastOrderId", path: "last_order_id"},
+              {field: "firstName", path: "first_name"},
+              {field: "lastName", path: "last_name"}
+            ]
             resultroot: "customer"
             endpoint: 
             "https://$api_key:$api_password@$store_name;.myshopify.com/admin/api/2020-01/customers/$id.json"
@@ -19,6 +24,11 @@ type Query {
     shopifyCustomerByEmail (email: String!): ShopifyCustomer
         @supplies (query: "customerByEmail")
         @rest (
+            setters: [
+              {field: "lastOrderId", path: "last_order_id"},
+              {field: "firstName", path: "first_name"},
+              {field: "lastName", path: "last_name"}
+            ]
             resultroot: "customers[]"
             endpoint: 
             "https://$api_key:$api_password@$store_name;.myshopify.com/admin/api/2020-01/customers/search.json?query=$email;"
