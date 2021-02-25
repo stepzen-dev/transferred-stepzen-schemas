@@ -75,6 +75,10 @@ type Query {
         @supplies (query: "orders")
         @rest (
             resultroot: "orders[]"
+            setters: [
+                {field: "totalDiscounts", path: "total_discounts"},
+                {field: "customerId", path: "customer.id"}
+            ]
             endpoint: 
             "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/customers/$customerId/orders.json?status=any"
             configuration: "shopify_config")
