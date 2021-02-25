@@ -8,7 +8,7 @@ interface Refund {
 type ShopifyRefund implements Refund {}
 interface RefundedOrder {
     id: ID!
-    createdAt: Date
+    created_at: Date
     email: String
     customerId: ID
     totalDiscounts: String
@@ -17,7 +17,7 @@ interface RefundedOrder {
 type ShopifyRefundedOrder implements RefundedOrder {}
 interface Order {
     id: ID!
-    createdAt: Date
+    created_at: Date
     email: String
     customerId: ID
     totalDiscounts: String
