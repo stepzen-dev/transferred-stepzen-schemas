@@ -10,7 +10,7 @@ extend interface Customer {
 #             query: "refundedOrders"
 #             arguments: [{ name: "customerId", field: "id" }]
 #         )
-}
+# }
 
 # extend interface RefundedOrder {
 #         refunds: [Refund]
@@ -18,4 +18,4 @@ extend interface Customer {
 #             query: "refunds"
 #             arguments: [{ name: "orderId", field: "id" }]
 #         )
-# }
+}
