@@ -1,21 +1,21 @@
-#### You can uncomment the below extensions if you would like to add subfields to your trees ####
-# extend interface Customer {
-#      allOrders: [Order]
-#         @materializer(
-#             query: "orders"
-#             arguments: [{ name: "customerId", field: "id" }]
-#         )
-#     refundedOrders: [RefundedOrder]
-#         @materializer(
-#             query: "refundedOrders"
-#             arguments: [{ name: "customerId", field: "id" }]
-#         )
-# }
+extend interface Customer {
+     allOrders: [Order]
+        @materializer(
+            query: "orders"
+            arguments: [{ name: "customerId", field: "id" }]
+        )
+#### You can uncomment the below extensions if you would like to add refunded orders as nested arrays ####
+    refundedOrders: [RefundedOrder]
+        @materializer(
+            query: "refundedOrders"
+            arguments: [{ name: "customerId", field: "id" }]
+        )
+}
 
-# extend interface RefundedOrder {
-#         refund: [Refund]
-#         @materializer(
-#             query: "refunds"
-#             arguments: [{ name: "refundId", field: "id" }]
-#         )
-# }
+extend interface RefundedOrder {
+        refunds: [Refund]
+        @materializer(
+            query: "refunds"
+            arguments: [{ name: "orderId", field: "id" }]
+        )
+}
