@@ -10,12 +10,12 @@ extend interface Customer {
 #             query: "refundedOrders"
 #             arguments: [{ name: "customerId", field: "id" }]
 #         )
-# }
+}
 
 # extend interface RefundedOrder {
-#         refund: [Refund]
+#         refunds: [Refund]
 #         @materializer(
 #             query: "refunds"
-#             arguments: [{ name: "refundId", field: "id" }]
+#             arguments: [{ name: "orderId", field: "id" }]
 #         )
-}
+# }

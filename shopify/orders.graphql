@@ -26,8 +26,8 @@ type ShopifyOrder implements Order {}
 type ShopifyOrderList implements Order {}
 type Query {
     #### You can uncomment the below queries if you have refunded orders ####
-    # refunds (id: ID!): [Refund]
-    # shopifyOrderRefunds (id: ID!): ShopifyRefund
+    # refunds (orderId: ID!): [Refund]
+    # shopifyOrderRefunds (orderId: ID!): [ShopifyRefund]
     #     @supplies (query: "refunds")
     #     @rest (
     #         setters: [
@@ -35,15 +35,15 @@ type Query {
     #         ]
     #         resultroot: "refunds[]"
     #         endpoint: 
-    #         "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/orders/$id/refunds.json"
+    #         "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/orders/$orderId;/refunds.json"
     #         configuration: "shopify_config")
-    # refund (id: ID!, refund_id: ID!): Refund
-    # shopifyOrderRefund (id: ID!, refund_id: ID!): ShopifyRefund
+    # refund (orderId: ID!, refundId: ID!): Refund
+    # shopifyOrderRefund (orderId: ID!, refundId: ID!): ShopifyRefund
     #     @supplies (query: "refund")
     #     @rest (
     #         resultroot: "refund"
     #         endpoint: 
-    #         "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/orders/$id/refunds/$refund_id.json"
+    #         "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/orders/$orderId;/refunds/$refundId;.json"
     #         configuration: "shopify_config")
     order (id: ID!): Order
     shopifyOrder (id: ID!): ShopifyOrder
