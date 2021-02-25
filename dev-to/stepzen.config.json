@@ -1,6 +1,5 @@
 {
     "config": {
-      "query": "events(id: \"\") { id name type details }",
       "questions": [
         {
           "username": "dev_config.username",

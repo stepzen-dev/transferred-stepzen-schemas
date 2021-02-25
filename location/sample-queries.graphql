@@ -1,0 +1,5 @@
+query myLocationQuery {
+  location (ip:"86.190.35.13") {
+    city
+  }
+}

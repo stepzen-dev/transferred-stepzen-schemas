@@ -1,0 +1,8 @@
+query myDevToQuery {
+  events(id: "") {
+    id
+    name
+    type
+    details
+  }
+}

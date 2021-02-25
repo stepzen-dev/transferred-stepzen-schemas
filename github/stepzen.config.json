@@ -1,6 +1,5 @@
 {
     "config": {
-      "query": "repositories(type:\"public\") { id name node_id private }",
       "questions": [
         {
           "name": "github_config.Authorization",

@@ -1,6 +1,5 @@
 {
     "config": {
-      "query": "twilioMessage(sid:\"\", accountId:\"\") { sid accountId to from body }",
       "questions": [
         {
           "name": "twilio_config.api_key",

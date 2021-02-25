@@ -1,6 +1,5 @@
 {
     "config": {
-      "query": "events(id: \"\") { id name type details }",
       "questions": [
         {
           "name": "airtable_config.Authorization",

@@ -1,0 +1,9 @@
+query myAmadeusQuery {
+  flights(origin: "PAR") {
+    type
+    origin
+    destination
+    departureDate
+    returnDate
+  }
+}

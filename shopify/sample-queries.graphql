@@ -1,0 +1,9 @@
+query myShopifyQuery {
+  shopifyOrder (id:2897056268425) {
+    id
+    email
+    createdOn
+    totalDiscounts
+    customerId
+  }
+}

@@ -1,6 +1,5 @@
 {
     "config": {
-      "query": "cloudinaryImage(publicId:\"samples/landscapes/nature-mountains\") { assetId publicId format width height bytes }",
       "questions": [
         {
           "name": "cloudinary_config.api_key",

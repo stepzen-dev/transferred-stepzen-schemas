@@ -1,6 +1,5 @@
 {
     "config": {
-      "query": "shopifyOrder(id:2897056268425) { id email createdOn totalDiscounts customerId }",
       "questions": [
         {
           "name": "shopify_config.api_key",
