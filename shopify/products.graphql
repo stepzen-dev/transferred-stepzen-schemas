@@ -4,9 +4,9 @@ interface Product {
     title: String
 }
 type ShopifyProduct implements Product {}
-type ShopifyProductList implements Product {}
 type Query {
     product (id: ID!): Product
+    products: [Product]
     shopifyProduct (id: ID!): ShopifyProduct
         @supplies (query: "product")
         @rest (
@@ -14,8 +14,8 @@ type Query {
             endpoint: 
             "https://$api_key:$api_password@$store_name.myshopify.com/admin/api/2020-01/products/$id.json"
             configuration: "shopify_config")
-    shopifyProductList (id: ID!): [ShopifyProduct]
-        @supplies (query: "product")
+    shopifyProductList: [ShopifyProduct]
+        @supplies (query: "products")
         @rest (
             resultroot: "products[]"
             endpoint: 
