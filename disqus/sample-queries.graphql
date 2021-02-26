@@ -1,0 +1,6 @@
+query myDisqusQuery {
+  disqusPost(forum: "bobross") {
+    id
+    message
+  }
+}

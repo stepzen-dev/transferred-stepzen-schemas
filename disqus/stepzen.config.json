@@ -1,6 +1,5 @@
 {
     "config": {
-      "query": "disqusPost(forum:\"bobross\") { id message }",
       "questions": [
         {
           "name": "disqus_config.api_key",

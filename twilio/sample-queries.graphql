@@ -1,0 +1,9 @@
+query myTwilioQuery {
+  twilioMessage (sid: "", accountId: "") {
+    sid
+    accountId
+    to
+    from
+    body
+  }
+}

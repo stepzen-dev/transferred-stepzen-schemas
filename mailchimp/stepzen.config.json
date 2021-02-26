@@ -1,6 +1,5 @@
 {
     "config": {
-      "query": "lists(id: \"\") { name id web_id memberCount }",
       "questions": [
         {
           "name": "mailchimp_config.api_password",
