@@ -1,8 +1,0 @@
-query myAirtableQuery {
-  events(id: "1") {
-    id
-    name
-    type
-    details
-  }
-}

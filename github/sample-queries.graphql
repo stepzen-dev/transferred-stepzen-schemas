@@ -1,8 +1,0 @@
-query myGithubQuery {
-  repositories(type: "public") {
-    id
-    name
-    node_id
-    private
-  }
-}

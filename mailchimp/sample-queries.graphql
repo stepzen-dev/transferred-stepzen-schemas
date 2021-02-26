@@ -1,8 +1,0 @@
-query myMailchimpQuery {
-  lists(id: "") {
-    name
-    id
-    web_id
-    memberCount
-  }
-}
