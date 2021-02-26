@@ -2,7 +2,7 @@ query myShopifyQuery {
   shopifyOrder (id:2897056268425) {
     id
     email
-    createdOn
+    createdAt
     totalDiscounts
     customerId
   }
