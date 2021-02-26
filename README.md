@@ -69,6 +69,7 @@ After a successful import, <strong>with or without</strong> credentials added in
 ├── config.yaml
 └── cloudinary
     ├── cloudinary.graphql
+    ├── sample-queries.graphql
     └── README.md
 
 1 directories, 4 files
@@ -87,10 +88,15 @@ Example of multiple SDL files from one import.
     ├── products.graphql
     ├── orders.graphql
     ├── extend.graphql
+    ├── sample-queries.graphql
     └── README.md
 
 1 directories, 7 files
 ```
-The `extend.graphql` SDL file is a [directive](https://my.stepzen.com/docs/reference/code/#set-of-directives) that stitches your data together.  Read more about how StepZen directives can unify your data here, https://my.stepzen.com/docs/reference/code/#set-of-directives and take your data to the next level 🚀
+The `extend.graphql` schema file is a [directive](https://my.stepzen.com/docs/reference/code/#set-of-directives) that stitches your data together.  Read more about how StepZen directives can unify your data here, https://my.stepzen.com/docs/reference/code/#set-of-directives and take your data to the next level 🚀
+
+The `sample-queries.graphql` schema file shows how the new imported schemas can be queried in the `localhost:5000` environment.  See all the possible queries in the documentation explorer at `localhost:5000`.
+
+![Localhost](https://res.cloudinary.com/dvfhnc6ui/image/upload/v1614362292/localhost-sample-query.png)
 
 Note: All the questions are preconfigured with a `stepzen.config.json` and can be viewed in the directories found in this repo. You can go use this information to properly prep your configurations for the questions following the `stepzen import` command. https://github.com/steprz/stepzen-schemas/blob/main/cloudinary/stepzen.config.json
