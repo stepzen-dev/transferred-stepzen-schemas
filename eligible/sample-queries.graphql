@@ -1,6 +1,0 @@
-query myEligibleQuery {
-  payer(id: "00001") {
-    payer_id
-    eligible_id
-  }
-}

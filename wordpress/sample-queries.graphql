@@ -1,5 +1,0 @@
-query myWordpressQuery {
-  wordpressPage (id:2) {
-    id
-  }
-}

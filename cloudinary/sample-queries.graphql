@@ -1,8 +1,0 @@
-query myCloudinaryQuery {
-  cloudinaryImage(publicId: "samples/landscapes/nature-mountains") {
-    assetId
-    publicId
-    format
-    bytes
-  }
-}
