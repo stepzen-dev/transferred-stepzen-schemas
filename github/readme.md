@@ -5,7 +5,7 @@ For a full tutorial on importing schemas into your StepZen project, the main [Re
 
 <em>First step to importing a schema into your StepZen SDL (Schema Definition Language) is to prepare the API for import. If you already have your API configurations, [skip](#import) this section.</em>
 
-1. Register a personal token, https://github.com/settings/tokens
+1. Register a personal token, https://github.com/settings/tokens.
 2. Add read/write permissions.  
 
 ## StepZen Import <a href="import"></a>
