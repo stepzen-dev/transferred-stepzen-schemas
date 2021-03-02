@@ -1,27 +1,29 @@
 interface Flight {
-    origin: String!
-    price: String
-    type: String
-    destination: String
-    departureDate: Date
-    returnDate: Date
+  origin: String!
+  price: String
+  type: String
+  destination: String
+  departureDate: Date
+  returnDate: Date
 }
+
 type AmadeusFlight implements Flight {}
+
 type Query {
-    flights (origin: String!): [Flight] 
-    amadeusFlights (origin: String!): [AmadeusFlight]
-        @supplies (query: "flights")
-        @rest (
-            setters: [
-                {field: "origin", path: "data[].origin"},
-                {field: "type", path: "data[].type"},
-                {field: "destination", path: "data[].destination"},
-                {field: "returnDate", path: "data[].returnDate"},
-                {field: "departureDate", path: "data[].departureDate"},
-                {field: "price", path: "data[].price.total"}
-            ]
-            resultroot: ""
-            endpoint: 
-            "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=$origin&maxPrice=200"
-            configuration: "amadeus_config")
+  flights(origin: String!): [Flight]
+  amadeusFlights(origin: String!): [AmadeusFlight]
+    @supplies(query: "flights")
+    @rest(
+      setters: [
+        { field: "origin", path: "data[].origin" }
+        { field: "type", path: "data[].type" }
+        { field: "destination", path: "data[].destination" }
+        { field: "returnDate", path: "data[].returnDate" }
+        { field: "departureDate", path: "data[].departureDate" }
+        { field: "price", path: "data[].price.total" }
+      ]
+      resultroot: ""
+      endpoint: "https://test.api.amadeus.com/v1/shopping/flight-destinations?origin=$origin&maxPrice=200"
+      configuration: "amadeus_config"
+    )
 }

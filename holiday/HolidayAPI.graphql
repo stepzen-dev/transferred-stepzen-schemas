@@ -1,6 +1,10 @@
-type HolidayAPI implements Holiday{}
+type HolidayAPI implements Holiday {}
+
 type Query {
-    holidayAPI(country: String!, month: Int!, year: Int!): [HolidayAPI]
-        @supplies (query: "holidays")
-        @connector (type: "__holiday_api_holiday_location_year_month_connector__", configuration: "holidayapi_default")
+  holidayAPI(country: String!, month: Int!, year: Int!): [HolidayAPI]
+    @supplies(query: "holidays")
+    @connector(
+      type: "__holiday_api_holiday_location_year_month_connector__"
+      configuration: "holidayapi_default"
+    )
 }

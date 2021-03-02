@@ -1,44 +1,46 @@
 interface Customer {
-    id: ID!
-    lastOrderId: ID
-    firstName: String
-    lastName: String
-    email: String
+  id: ID!
+  lastOrderId: ID
+  firstName: String
+  lastName: String
+  email: String
 }
+
 type ShopifyCustomer implements Customer {}
+
 type Query {
-    customer (id: ID!): Customer
-    shopifyCustomer (id: ID!): ShopifyCustomer
-        @supplies (query: "customer")
-        @rest (
-            setters: [
-              {field: "lastOrderId", path: "last_order_id"},
-              {field: "firstName", path: "first_name"},
-              {field: "lastName", path: "last_name"}
-            ]
-            resultroot: "customer"
-            endpoint: 
-            "https://$api_key:$api_password@$store_name;.myshopify.com/admin/api/2020-01/customers/$id.json"
-            configuration: "shopify_config")
-    customerByEmail (email: String!): Customer
-    shopifyCustomerByEmail (email: String!): ShopifyCustomer
-        @supplies (query: "customerByEmail")
-        @rest (
-            setters: [
-              {field: "lastOrderId", path: "last_order_id"},
-              {field: "firstName", path: "first_name"},
-              {field: "lastName", path: "last_name"}
-            ]
-            resultroot: "customers[]"
-            endpoint: 
-            "https://$api_key:$api_password@$store_name;.myshopify.com/admin/api/2020-01/customers/search.json?query=$email;"
-            configuration: "shopify_config")
-    customers: [Customer]
-    shopifyCustomers: [ShopifyCustomer]
-        @supplies (query: "customers")
-        @rest (
-            resultroot: "customers[]"
-            endpoint: 
-            "https://$api_key:$api_password@$store_name;.myshopify.com/admin/api/2020-01/customers.json"
-            configuration: "shopify_config")
+  customer(id: ID!): Customer
+  shopifyCustomer(id: ID!): ShopifyCustomer
+    @supplies(query: "customer")
+    @rest(
+      setters: [
+        { field: "lastOrderId", path: "last_order_id" }
+        { field: "firstName", path: "first_name" }
+        { field: "lastName", path: "last_name" }
+      ]
+      resultroot: "customer"
+      endpoint: "https://$api_key:$api_password@$store_name;.myshopify.com/admin/api/2020-01/customers/$id.json"
+      configuration: "shopify_config"
+    )
+  customerByEmail(email: String!): Customer
+  shopifyCustomerByEmail(email: String!): ShopifyCustomer
+    @supplies(query: "customerByEmail")
+    @rest(
+      setters: [
+        { field: "lastOrderId", path: "last_order_id" }
+        { field: "firstName", path: "first_name" }
+        { field: "lastName", path: "last_name" }
+      ]
+      resultroot: "customers[]"
+      endpoint: "https://$api_key:$api_password@$store_name;.myshopify.com/admin/api/2020-01/customers/search.json?query=$email;"
+      configuration: "shopify_config"
+    )
+  customers: [Customer]
+  shopifyCustomers: [ShopifyCustomer]
+    @supplies(query: "customers")
+    @rest(
+      resultroot: "customers[]"
+      endpoint: "https://$api_key:$api_password@$store_name;.myshopify.com/admin/api/2020-01/customers.json"
+      configuration: "shopify_config"
+    )
 }
