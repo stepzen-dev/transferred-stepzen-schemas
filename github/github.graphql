@@ -23,7 +23,7 @@ interface Follower {
   avatar_url: String
 }
 
-type GithubFollower implements Follower{}
+type GithubFollower implements Follower {}
 
 type Query {
   user(username: String!): User
