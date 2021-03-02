@@ -91,6 +91,6 @@ Example of multiple SDL files from one import.
 
 1 directories, 7 files
 ```
-The `extend.graphql` SDL file is a [directive](https://my.stepzen.com/docs/reference/code/#set-of-directives) that stitches your data together.  Read more about how StepZen directives can unify your data here, https://my.stepzen.com/docs/reference/code/#set-of-directives and take your data to the next level 🚀
+The `extend.graphql` SDL file is an [directive schema](https://my.stepzen.com/docs/reference/code/#set-of-directives) that uses the @materializer directive to stitch your data together.  Read more about how StepZen directives can unify your data here, https://my.stepzen.com/docs/reference/code/#set-of-directives and take your data to the next level 🚀
 
 Note: All the questions are preconfigured with a `stepzen.config.json` and can be viewed in the directories found in this repo. You can go use this information to properly prep your configurations for the questions following the `stepzen import` command. https://github.com/steprz/stepzen-schemas/blob/main/cloudinary/stepzen.config.json
