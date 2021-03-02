@@ -1,15 +1,17 @@
 interface Page {
-    id: ID!
+  id: ID!
 }
+
 type WordpressPage implements Page {}
+
 type Query {
-    page (id: ID!): Page
-    wordpressPage (id: ID!): WordpressPage
-        @supplies (query: "page")
-        @rest (
-            resultroot: ""
-            endpoint: 
-            "http://143.198.12.235/wp-json/wp/v2/pages/$id?_embed"
-            # Basic Auth - https://$username;:$password;@143.198.12.235/wp-json/wp/v2/pages/$id?_embed"
-            configuration: "wordpress_config")
+  page(id: ID!): Page
+  wordpressPage(id: ID!): WordpressPage
+    @supplies(query: "page")
+    @rest(
+      resultroot: ""
+      endpoint: "http://143.198.12.235/wp-json/wp/v2/pages/$id?_embed"
+      # Basic Auth - https://$username;:$password;@143.198.12.235/wp-json/wp/v2/pages/$id?_embed"
+      configuration: "wordpress_config"
+    )
 }

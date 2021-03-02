@@ -1,4 +1,5 @@
 type DeliveryFedEx implements Delivery {}
+
 type Query {
     deliveryFedEx (carrier: String!, trackingId: String!): DeliveryFedEx
         @supplies (query: "delivery")

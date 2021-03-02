@@ -1,21 +1,21 @@
 interface Message {
-    sid: ID!
-    accountId: ID
-    to: String
-    from: String
-    body: String
+  sid: ID!
+  accountId: ID
+  to: String
+  from: String
+  body: String
 }
+
 type TwilioMessage implements Message {}
+
 type Query {
-    message (sid: ID!, accountId: ID!): Message
-    twilioMessage (sid: ID!, accountId: ID!): TwilioMessage
-        @supplies (query: "message")
-        @rest (
-            setters: [
-              {field: "accountId", path: "account_sid"}
-            ]
-            resultroot: ""
-            endpoint: 
-            "https://$api_key:$api_secret@api.twilio.com/2010-04-01/Accounts/$accountId/Messages/$sid;.json"
-            configuration: "twilio_config")
+  message(sid: ID!, accountId: ID!): Message
+  twilioMessage(sid: ID!, accountId: ID!): TwilioMessage
+    @supplies(query: "message")
+    @rest(
+      setters: [{ field: "accountId", path: "account_sid" }]
+      resultroot: ""
+      endpoint: "https://$api_key:$api_secret@api.twilio.com/2010-04-01/Accounts/$accountId/Messages/$sid;.json"
+      configuration: "twilio_config"
+    )
 }

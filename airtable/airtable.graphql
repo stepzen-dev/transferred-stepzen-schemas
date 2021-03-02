@@ -1,22 +1,24 @@
 interface Events {
-    id: String!
-    name: String
-    type: String
-    details: String
+  id: String!
+  name: String
+  type: String
+  details: String
 }
+
 type AirtableEvent implements Events {}
+
 type Query {
-    events (id: String!): Events
-    airtableEvent (id: String!): AirtableEvent
-        @supplies (query: "events")
-        @rest (
-            setters: [
-                {field: "name", path: "fields.Name"},
-                {field: "type", path: "fields.Type"},
-                {field: "details", path: "fields.Details"},
-            ]
-            resultroot: ""
-            endpoint: 
-            "https://api.airtable.com/v0/$table/Events/$id"
-            configuration: "airtable_config")
+  events(id: String!): Events
+  airtableEvent(id: String!): AirtableEvent
+    @supplies(query: "events")
+    @rest(
+      setters: [
+        { field: "name", path: "fields.Name" }
+        { field: "type", path: "fields.Type" }
+        { field: "details", path: "fields.Details" }
+      ]
+      resultroot: ""
+      endpoint: "https://api.airtable.com/v0/$table/Events/$id"
+      configuration: "airtable_config"
+    )
 }

@@ -4,6 +4,7 @@ interface Holiday {
   year: Int!
   name: String!
 }
+
 type Query {
   holidays(country: String!, month: Int!, year: Int!): [Holiday]
 }
