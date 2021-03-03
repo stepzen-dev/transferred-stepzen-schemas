@@ -22,7 +22,7 @@ type Query {
     @supplies(query: "lists")
     @rest(
       setters: [{ field: "memberCount", path: "stats.member_count" }]
-      endpoint: "https://$api_key:$api_password@us7.api.mailchimp.com/3.0/lists/$id"
+      endpoint: "https://anystring:$api_password@us7.api.mailchimp.com/3.0/lists/$id"
       configuration: "mailchimp_config"
     )
   members(id: ID!, listId: ID!): Members
@@ -30,7 +30,7 @@ type Query {
     @supplies(query: "members")
     @rest(
       setters: [{ field: "listId", path: "list_id" }]
-      endpoint: "https://$api_key:$api_password@us7.api.mailchimp.com/3.0/lists/$listId/members/$id"
+      endpoint: "https://anystring:$api_password@us7.api.mailchimp.com/3.0/lists/$listId/members/$id"
       configuration: "mailchimp_config"
     )
 }

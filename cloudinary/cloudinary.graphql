@@ -1,25 +1,48 @@
 interface Image {
+  url: String!
   assetId: ID!
   publicId: ID
   format: String
   bytes: Float
+  height: Int
+  width: Int
 }
 
 type CloudinaryImage implements Image {}
 
 type Query {
   image(publicId: ID!): Image
+  images: [Image]
   cloudinaryImage(publicId: ID!): CloudinaryImage
     @supplies(query: "image")
     @rest(
       setters: [
-        { field: "assetId", path: "resources[].asset_id" }
-        { field: "publicId", path: "resources[].public_id" }
-        { field: "format", path: "resources[].format" }
-        { field: "bytes", path: "resources[].bytes" }
+        {field: "url", path: "resources[].secure_url"},
+        {field: "assetId", path: "resources[].asset_id"},
+        {field: "publicId", path: "resources[].public_id"},
+        {field: "format", path: "resources[].format"},
+        {field: "bytes", path: "resources[].bytes"},
+        {field: "height", path: "resources[].height"},
+        {field: "width", path: "resources[].width"}
       ]
       resultroot: ""
       endpoint: "https://$api_key:$api_secret@api.cloudinary.com/v1_1/$cloud_name/resources/image?public_ids=$publicId"
       configuration: "cloudinary_config"
     )
+  cloudinaryImages: [CloudinaryImage]
+    @supplies (query: "images")
+    @rest (
+      setters: [
+        {field: "url", path: "resources[].secure_url"},
+        {field: "assetId", path: "resources[].asset_id"},
+        {field: "publicId", path: "resources[].public_id"},
+        {field: "format", path: "resources[].format"},
+        {field: "bytes", path: "resources[].bytes"},
+        {field: "height", path: "resources[].height"},
+        {field: "width", path: "resources[].width"}
+      ]
+      resultroot: ""
+      endpoint: 
+      "https://$api_key:$api_secret@api.cloudinary.com/v1_1/$cloud_name/resources/image"
+      configuration: "cloudinary_config")
 }

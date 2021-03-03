@@ -1,0 +1,60 @@
+interface WPPost {
+    id: ID!
+    title: String!
+    content: String!
+    slug: String
+    featuredImage: String
+    yoastHeader: String
+}
+# Basic Auth - https://$username;:$password;@143.198.12.235/wp-json/wp/v2/posts/$id?_embed"
+type WordpressPost implements WPPost {}
+type Query {
+    wppost (id: ID!): WPPost
+    wpposts: [WPPost]
+    wppostsbyslug(slug: String!): [WPPost]
+    wppostsbycategory(category: String!): [WPPost]
+    wordpressPost (id: ID!): WordpressPost
+        @supplies (query: "wppost")
+        @rest (
+             setters: [
+                {field: "title", path: "title.rendered"},
+                {field: "content", path: "content.rendered"},
+                {field: "yoastHeader", path: "yoast_head"}
+            ]
+            resultroot: ""
+            endpoint: 
+            "http://143.198.12.235/wp-json/wp/v2/posts/$id?_embed")
+    wordpressPosts: [WordpressPost]
+        @supplies (query: "wpposts")
+        @rest (
+             setters: [
+                {field: "title", path: "title.rendered"},
+                {field: "content", path: "content.rendered"},
+                {field: "yoastHeader", path: "yoast_head"}
+            ]
+            resultroot: ""
+            endpoint: 
+            "http://143.198.12.235/wp-json/wp/v2/posts/")
+    wordpressPostsBySlug(slug: String!): [WordpressPost]
+        @supplies (query: "wppostsbyslug")
+        @rest (
+             setters: [
+                {field: "title", path: "title.rendered"},
+                {field: "content", path: "content.rendered"},
+                {field: "yoastHeader", path: "yoast_head"}
+            ]
+            resultroot: ""
+            endpoint: 
+            "http://143.198.12.235/wp-json/wp/v2/posts?slug=$slug;")
+    wordpressPostsByCategory(category: String!): [WordpressPost]
+        @supplies (query: "wppostsbycategory")
+        @rest (
+             setters: [
+                {field: "title", path: "title.rendered"},
+                {field: "content", path: "content.rendered"},
+                {field: "yoastHeader", path: "yoast_head"}
+            ]
+            resultroot: ""
+            endpoint: 
+            "http://143.198.12.235/wp-json/wp/v2/posts/?category=$category;")
+}

@@ -1,0 +1,49 @@
+interface WPPage {
+    id: ID!
+    title: String!
+    content: String!
+    slug: String
+    featuredImage: String
+    # yoast
+    yoastHeader: String
+}
+# Basic Auth - https://$username;:$password;@143.198.12.235/wp-json/wp/v2/pages/$id?_embed"
+type WordpressPage implements WPPage {}
+type Query {
+    wppage (id: ID!): WPPage
+    wppages: [WPPage]
+    wppagebyslug(slug: String!): [WPPage]
+    wordpressPage (id: ID!): WordpressPage
+        @supplies (query: "wppage")
+        @rest (
+             setters: [
+                {field: "title", path: "title.rendered"},
+                {field: "content", path: "content.rendered"},
+                {field: "yoastHeader", path: "yoast_head"}
+            ]
+            resultroot: ""
+            endpoint: 
+            "http://143.198.12.235/wp-json/wp/v2/pages/$id?_embed")
+    wordpressPages: [WordpressPage]
+        @supplies (query: "wppages")
+        @rest (
+             setters: [
+                {field: "title", path: "title.rendered"},
+                {field: "content", path: "content.rendered"},
+                {field: "yoastHeader", path: "yoast_head"}
+            ]
+            resultroot: ""
+            endpoint: 
+            "http://143.198.12.235/wp-json/wp/v2/pages/")
+    wordpressPagesBySlug(slug: String!): [WordpressPage]
+        @supplies (query: "wppagebyslug")
+        @rest (
+             setters: [
+                {field: "title", path: "title.rendered"},
+                {field: "content", path: "content.rendered"},
+                {field: "yoastHeader", path: "yoast_head"}
+            ]
+            resultroot: ""
+            endpoint: 
+            "http://143.198.12.235/wp-json/wp/v2/pages?slug=$slug;")
+}
