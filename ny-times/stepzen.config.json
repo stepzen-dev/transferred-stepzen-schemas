@@ -1,0 +1,10 @@
+{
+  "config": {
+    "questions": [
+      {
+        "name": "nytimes_config.api_key",
+        "message": "What is the api key for your New York Times API?"
+      }
+    ]
+  }
+}

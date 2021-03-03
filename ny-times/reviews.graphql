@@ -1,0 +1,25 @@
+interface NYReview {
+    displayTitle: String!
+    criticsPick: Int
+    url: String
+    publicationDate: Date
+}
+
+type NYTimesReview implements NYReview {}
+
+type Query {
+    nyReviews (movie: String!): [NYReview]
+    nytimesReviews (movie: String!): [NYTimesReview]
+        @supplies (query: "nyReviews")
+        @rest (
+            setters: [
+              {field: "displayTitle", path: "display_title"},
+              {field: "criticsPick", path: "critics_pick"},
+              {field: "url", path: "link.url"},
+              {field: "publicationDate", path: "publication_date"}
+            ]
+            resultroot: "results[]"
+            endpoint: 
+            "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=$movie&api-key=$api_key;"
+            configuration: "nytimes_config")
+}
