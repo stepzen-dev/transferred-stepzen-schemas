@@ -1,31 +1,28 @@
 interface Rocket {
     id: String!
+    height_in_meters: Int
     name: String
-    engines: String
-    height: [Int]
-    diameter: [Int]
-    mass: [Int]
-    description: String!
-    cost_per_launch: [Int]
-    success_rate_pct: [Int]
+}
+
+
+
+type SpaceXRocket implements Rocket {
+
 }
 
 type Query {
     rocket(id: String!): Rocket
-    @supplies(query: "rocket")
-    @rest(
-    endpoint: "https://api.spacexdata.com/v4/rockets"
-    setters: [
-        {field: "name", path: "fields.name"}
-        {field: "engines", path: "fields.engines"}
-        {field: "height", path: "fields.height"}
-        {field: "diameter", path: "fields.diameter"}
-        {field: "mass", path: "fields.mass"}
-        {field: "description", path: "fields.description"}
-        {field: "cost_per_launch", path: "fields.cost_per_launch"}
-        {field: "success_rate_pct", path: "fields.success_rate_pct"}
-    ]
-    resultroot: ""
-    configuration: "mojave"
+    spaceXRocket(id: String!): SpaceXRocket
+        @supplies(query: "rocket")
+        @rest(
+        endpoint: "https://api.spacexdata.com/v4/rockets/$id;"
+        setters: [
+            {field: "height_in_meters", path: "height.meters"}
+            {field: "name", path: "field.name"}
+            {field: "id", path: "field.id"}
+        ]
+        resultroot: ""
+        configuration: "mojave"
     )
 }
+
