@@ -1,0 +1,7 @@
+interface Rocket {
+
+}
+
+type Query {
+    Rocket (): Rocket
+}
