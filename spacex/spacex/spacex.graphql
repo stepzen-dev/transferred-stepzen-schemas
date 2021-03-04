@@ -14,6 +14,7 @@ type Query {
     rocket(id: String!): Rocket
     @supplies(query: "rocket")
     @rest(
+    endpoint: "https://api.spacexdata.com/v4/rockets"
     setters: [
         {field: "name", path: "fields.name"}
         {field: "engines", path: "fields.engines"}
@@ -25,7 +26,6 @@ type Query {
         {field: "success_rate_pct", path: "fields.success_rate_pct"}
     ]
     resultroot: ""
-    endpoint: "https://api.spacexdata.com/v4/rockets"
-    configuration: "spacex_config"
+    configuration: "mojave"
     )
 }
