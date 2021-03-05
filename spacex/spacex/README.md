@@ -47,7 +47,7 @@ The config.yaml configuration for spacex.
 ```bash
   - configuration:
       name: {YOUR_STEPZEN_USERNAME}
-      Authorization: Bearer {YOUR_STEPZEN_TOKEN_HERE}
+      Authorization: Bearer {YOUR_STEPZEN_API_TOKEN_HERE}
 ```
 
 4. Start up the StepZen Endpoint. Provide the directory path to deploy your endpoint appropriately.  
