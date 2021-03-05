@@ -8,8 +8,6 @@ interface Rocket {
     cost_per_launch: Int
 }
 
-
-
 type SpaceXRocket implements Rocket {
 
 }
@@ -60,22 +58,6 @@ type Query {
         resultroot: ""
         configuration: "mojave"
     )
-
-    launchesByRocket (id: String!): [Launch]
-    spaceXLaunchesByRocket (id: String!):[SpaceXLaunch]
-    @supplies(query: "launchesByRocket")
-    @rest(
-        endpoint: "https://api.spacexdata.com/v4/rockets/$id;"
-        setters: [
-            {field: "id", path: "id"}
-            {field: "rocket", path: "rocket"}
-            {field: "details", path: "details"}
-            {field: "webcast", path: "links.webcast"}
-        ]
-        resultroot: ""
-        configuration: "mojave"
-    )
-
 }
 
 
