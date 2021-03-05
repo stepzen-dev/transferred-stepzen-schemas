@@ -1,7 +1,11 @@
 interface Rocket {
     id: String!
-    height_in_meters: Int
     name: String
+    height_in_meters: Int
+    diameter_in_meters: Int
+    mass_in_kg: Int
+    success_rate_pct: Int
+    cost_per_launch: Int
 }
 
 
@@ -10,6 +14,17 @@ type SpaceXRocket implements Rocket {
 
 }
 
+interface Launch {
+    id: String!
+    rocket: String
+    details: String
+    webcast: String
+    rocket_id: String
+}
+
+type SpaceXLaunch implements Launch {}
+
+
 type Query {
     rocket(id: String!): Rocket
     spaceXRocket(id: String!): SpaceXRocket
@@ -17,12 +32,52 @@ type Query {
         @rest(
         endpoint: "https://api.spacexdata.com/v4/rockets/$id;"
         setters: [
+            {field: "id", path: "id"}
+            {field: "name", path: "name"}
             {field: "height_in_meters", path: "height.meters"}
-            {field: "name", path: "field.name"}
-            {field: "id", path: "field.id"}
+            {field: "diameter_in_meters", path: "diameter.meters"}
+            {field: "mass_in_kg", path: "mass.kg"}
+            {field: "success_rate_pct", path: "success_rate_pct"}
+            {field: "cost_per_launch", path: "cost_per_launch"}
+            
         ]
         resultroot: ""
         configuration: "mojave"
     )
+
+    launch(id: String!): Launch
+    spaceXLaunch(id: String!): SpaceXLaunch
+    @supplies(query: "launch")
+    @rest(
+        endpoint: "https://api.spacexdata.com/v4/launches/$id;"
+        setters: [
+            {field: "id", path: "id"}
+            {field: "rocket", path: "rocket"}
+            {field: "details", path: "details"}
+            {field: "webcast", path: "links.webcast"}
+            
+        ]
+        resultroot: ""
+        configuration: "mojave"
+    )
+
+    launchesByRocket (id: String!): [Launch]
+    spaceXLaunchesByRocket (id: String!):[SpaceXLaunch]
+    @supplies(query: "launchesByRocket")
+    @rest(
+        endpoint: "https://api.spacexdata.com/v4/rockets/$id;"
+        setters: [
+            {field: "id", path: "id"}
+            {field: "rocket", path: "rocket"}
+            {field: "details", path: "details"}
+            {field: "webcast", path: "links.webcast"}
+        ]
+        resultroot: ""
+        configuration: "mojave"
+    )
+
 }
+
+
+
 
