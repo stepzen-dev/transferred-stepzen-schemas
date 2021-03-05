@@ -38,7 +38,7 @@ type Query {
             
         ]
         resultroot: ""
-        configuration: "mojave"
+        configuration: {YOUR_STEPZEN_USERNAME}
     )
 
     launch(id: String!): Launch
@@ -53,7 +53,7 @@ type Query {
             
         ]
         resultroot: ""
-        configuration: "mojave"
+        configuration: {YOUR_STEPZEN_USERNAME}
     )
 }
 
