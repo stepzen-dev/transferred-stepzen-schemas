@@ -4,10 +4,6 @@
         {
           "name": "dev_config.username",
           "message": "What is the username of your dev.to account?"
-        },
-        {
-          "name": "dev_config.name",
-          "message": "What is the name of your api?"
         }
       ]
     } 
