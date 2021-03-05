@@ -14,10 +14,8 @@ type SpaceXRocket implements Rocket {
 
 interface Launch {
     id: String!
-    rocket: String
     details: String
     webcast: String
-    rocket_id: String
 }
 
 type SpaceXLaunch implements Launch {}
@@ -50,7 +48,6 @@ type Query {
         endpoint: "https://api.spacexdata.com/v4/launches/$id;"
         setters: [
             {field: "id", path: "id"}
-            {field: "rocket", path: "rocket"}
             {field: "details", path: "details"}
             {field: "webcast", path: "links.webcast"}
             

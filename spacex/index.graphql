@@ -1,7 +1,6 @@
 schema 
     @sdl(files: [
-        "spacex/spacex.graphql",
-        "spacex/extend.graphql"
+        "spacex/spacex.graphql"
     ]) {
         query: Query
     }
