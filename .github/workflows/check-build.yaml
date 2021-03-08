@@ -1,0 +1,16 @@
+name: stepzen-schema-checks
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches:
+    - gitworkflow**
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: npm install @actions/core glob prettier
+    - name: Checks formatting
+      run: node ./.github/scripts/formatting-check.js
