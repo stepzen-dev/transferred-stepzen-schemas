@@ -1,10 +1,14 @@
 {
-    "config": {
-      "questions": [
-        {
-          "name": "mailchimp_config.api_password",
-          "message": "What is the authentication code for your mailchimp API?"
-        }
-      ]
-    } 
+  "config": {
+    "questions": [
+      {
+        "name": "mailchimp_config.api_password",
+        "message": "What is the authentication code for your mailchimp API?"
+      },
+      {
+        "name": "mailchimp_config.server",
+        "message": "What is the 3 digit server (example: us7) associated with your mailchimp API endpoint?"
+      }
+    ]
   }
+}
