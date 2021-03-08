@@ -6,11 +6,20 @@ on:
     branches:
     - gitworkflow**
 jobs:
-  main:
+  formatting-check:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install dependencies
-      run: npm install @actions/core glob prettier
-    - name: Checks formatting
-      run: node ./.github/scripts/formatting-check.js
+    - run: npm install @actions/core glob prettier
+    - run: node ./.github/scripts/formatting-check.js
+  test-beta-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install stepzen@beta
+      - run: |
+          mkdir testing
+          cd testing
+          ../node_modules/stepzen/bin/run init --yes
+          ../node_modules/stepzen/bin/run import location
+          ../node_modules/stepzen/bin/run validate .
