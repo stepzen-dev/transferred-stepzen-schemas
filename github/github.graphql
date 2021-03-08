@@ -5,7 +5,7 @@ interface Repository {
   node_id: String
 }
 
-type GithubRepo implements Repository{}
+type GithubRepo implements Repository {}
 
 interface User {
   id: ID!
@@ -14,7 +14,7 @@ interface User {
   avatar_url: String
 }
 
-type GithubUser implements User{}
+type GithubUser implements User {}
 
 interface Follower {
   id: ID!
