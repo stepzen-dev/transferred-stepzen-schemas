@@ -11,12 +11,6 @@ interface Article {
   published_timestamp: Date!
   username: String!
   github_username: String!
-  # Stitching the Github username to dev.to article. If you have the github schema imported, uncomment this section.
-  # user: User
-  #   @materializer(
-  #     query: "userByUsername"
-  #     arguments: [{ name: "username", field: "github_username" }]
-  #   )
   body_html: String
   body_markdown: String
 }
