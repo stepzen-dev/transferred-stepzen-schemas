@@ -19,26 +19,28 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           IMPORTS="$(ls -dm */ | tr -d '/ ' | tr -d '\n')"
+          cd ~
           npm install stepzen@beta
-          mkdir /github/workspace/testing
-          cd /github/workspace/testing
+          mkdir ~/testing
+          cd ~/testing
           ../node_modules/.bin/stepzen init --yes
           ../node_modules/.bin/stepzen import $IMPORTS --silent
-          rm -rf /github/workspace/node_modules
-          rm -rf /github/workspace/testing
+          rm -rf ~/node_modules
+          rm -rf ~/testing
   test-beta-version-import-each:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: |
           IMPORTS="$(ls -dm */ | tr -d '/ ' | tr -d '\n')"
+          cd ~
           npm install stepzen@beta
           for IMPORT in $(echo $IMPORTS | sed "s/,/ /g")
           do
-            mkdir "/github/workspace/testing-$IMPORT"
-            cd "/github/workspace/testing-$IMPORT"
+            mkdir ~/testing-$IMPORT
+            cd ~/testing-$IMPORT
             ../node_modules/.bin/stepzen init --yes
             ../node_modules/.bin/stepzen import $IMPORT --silent
-            rm -rf "/github/workspace/testing-$IMPORT"
+            rm -rf ~/testing-$IMPORT
           done
-          rm -rf /github/workspace/node_modules
+          rm -rf ~/node_modules
