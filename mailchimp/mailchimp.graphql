@@ -20,23 +20,23 @@ type Query {
   list(id: ID!): List
   lists: [List]
   mailchimpLists: [MailChimpList]
-    @supplies (query: "lists")
-    @rest (
-        setters: [
-          {field: "memberCount", path: "stats.member_count"},
-          {field: "webId", path: "web_id"}
-        ]
-        resultroot: "lists[]"
-        endpoint: 
-        "https://anystring:$api_password@$server;.api.mailchimp.com/3.0/lists/"
-        configuration: "mailchimp_config")
+    @supplies(query: "lists")
+    @rest(
+      setters: [
+        { field: "memberCount", path: "stats.member_count" }
+        { field: "webId", path: "web_id" }
+      ]
+      resultroot: "lists[]"
+      endpoint: "https://anystring:$api_password@$server;.api.mailchimp.com/3.0/lists/"
+      configuration: "mailchimp_config"
+    )
   mailchimpList(id: ID!): MailChimpList
     @supplies(query: "list")
     @rest(
       setters: [
-          { field: "memberCount", path: "stats.member_count" },
-          {field: "webId", path: "web_id"}
-        ]
+        { field: "memberCount", path: "stats.member_count" }
+        { field: "webId", path: "web_id" }
+      ]
       endpoint: "https://anystring:$api_password@$server;.api.mailchimp.com/3.0/lists/$id"
       configuration: "mailchimp_config"
     )
@@ -45,7 +45,7 @@ type Query {
     @supplies(query: "members")
     @rest(
       setters: [
-        { field: "listId", path: "list_id" },
+        { field: "listId", path: "list_id" }
         { field: "emailAddress", path: "email_address" }
       ]
       endpoint: "https://anystring:$api_password@$server;.api.mailchimp.com/3.0/lists/$listId/members/$id"
