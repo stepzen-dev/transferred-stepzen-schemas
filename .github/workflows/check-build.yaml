@@ -19,28 +19,23 @@ jobs:
       - uses: actions/checkout@v2
       - run: |
           IMPORTS="$(ls -dm */ | tr -d '/ ' | tr -d '\n')"
-          cd ~
           npm install stepzen@beta
-          mkdir ~/testing
-          cd ~/testing
+          mkdir testing
+          cd testing
           ../node_modules/.bin/stepzen init --yes
-          ../node_modules/.bin/stepzen import $IMPORTS --silent
-          rm -rf ~/node_modules
-          rm -rf ~/testing
+          ../node_modules/.bin/stepzen import $IMPORTS --silent --local-dir ../
   test-beta-version-import-each:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: |
           IMPORTS="$(ls -dm */ | tr -d '/ ' | tr -d '\n')"
-          cd ~
           npm install stepzen@beta
           for IMPORT in $(echo $IMPORTS | sed "s/,/ /g")
           do
-            mkdir ~/testing-$IMPORT
-            cd ~/testing-$IMPORT
+            mkdir testing-$IMPORT
+            cd testing-$IMPORT
             ../node_modules/.bin/stepzen init --yes
-            ../node_modules/.bin/stepzen import $IMPORT --silent
-            rm -rf ~/testing-$IMPORT
+            ../node_modules/.bin/stepzen import $IMPORT --silent --local-dir ../
+            cd ..
           done
-          rm -rf ~/node_modules
