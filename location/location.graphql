@@ -11,3 +11,10 @@ interface Location {
 type Query {
   location(ip: String!): Location
 }
+
+## After importing weatherreport schema, uncomment
+## the following three lines to extend the Location
+## interface with the WeatherReport interface.
+# extend interface Location {
+#  weather: WeatherReport @materializer(query: "weatherReport")
+#}
