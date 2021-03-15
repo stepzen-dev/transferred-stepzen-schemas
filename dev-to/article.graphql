@@ -1,4 +1,4 @@
-interface Article {
+interface DevToArticle {
   id: ID!
   title: String!
   description: String
@@ -15,12 +15,12 @@ interface Article {
   body_markdown: String
 }
 
-type ArticleFromRest implements Article {}
+type DevToArticleFromRest implements DevToArticle {}
 
 type Query {
-  publishedArticleById(id: ID!): Article
-  publishedArticleByIdFromRest(id: ID!): ArticleFromRest
-    @supplies(query: "publishedArticleById")
+  publishedDevToArticleById(id: ID!): DevToArticle
+  publishedDevToArticleByIdFromRest(id: ID!): DevToArticleFromRest
+    @supplies(query: "publishedDevToArticleById")
     @rest(
       endpoint: "https://dev.to/api/articles/$id"
       setters: [
@@ -28,9 +28,9 @@ type Query {
         { field: "github_username", path: "user.github_username" }
       ]
     )
-  publishedArticleByPath(path: String!): Article
-  publishedArticleByPathFromRest(path: String!): ArticleFromRest
-    @supplies(query: "publishedArticleByPath")
+  publishedDevToArticleByPath(path: String!): DevToArticle
+  publishedDevToArticleByPathFromRest(path: String!): DevToArticleFromRest
+    @supplies(query: "publishedDevToArticleByPath")
     @rest(
       endpoint: "https://dev.to/api/articles/$path"
       setters: [
@@ -38,9 +38,9 @@ type Query {
         { field: "github_username", path: "user.github_username" }
       ]
     )
-  myArticles: [Article]
-  myArticlesFromRest: [ArticleFromRest]
-    @supplies(query: "myArticles")
+  myDevToArticles: [DevToArticle]
+  myDevToArticlesFromRest: [DevToArticleFromRest]
+    @supplies(query: "myDevToArticles")
     @rest(
       endpoint: "https://dev.to/api/articles?username=$username"
       setters: [
