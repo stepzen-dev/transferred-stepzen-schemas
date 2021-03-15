@@ -7,14 +7,14 @@ interface Repository {
 
 type GithubRepo implements Repository {}
 
-interface User {
+interface GHUser {
   id: ID!
   username: String
   node_id: String
   avatar_url: String
 }
 
-type GithubUser implements User {}
+type GithubUser implements GHUser {}
 
 interface Follower {
   id: ID!
@@ -26,9 +26,9 @@ interface Follower {
 type GithubFollower implements Follower {}
 
 type Query {
-  user(username: String!): User
+  ghUser(username: String!): GHUser
   githubUser(username: String!): GithubUser
-    @supplies(query: "user")
+    @supplies(query: "ghUser")
     @rest(
       resultroot: ""
       endpoint: "https://api.github.com/users/$username"
