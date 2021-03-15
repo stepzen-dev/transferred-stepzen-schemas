@@ -10,32 +10,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
     - run: npm install @actions/core glob prettier
     - run: node ./.github/scripts/formatting-check.js
   test-beta-version-import-all:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm install -g stepzen@beta
       - run: |
           IMPORTS="$(ls -dm */ | tr -d '/ ' | tr -d '\n')"
+          npm install stepzen@beta
           mkdir /github/workspace/testing
           cd /github/workspace/testing
-          stepzen init --yes
-          stepzen import $IMPORTS --silent
+          ../node_modules/.bin/stepzen init --yes
+          ../node_modules/.bin/stepzen import $IMPORTS --silent
+          rm -rf /github/workspace/node_modules
           rm -rf /github/workspace/testing
   test-beta-version-import-each:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm install -g stepzen@beta
       - run: |
           IMPORTS="$(ls -dm */ | tr -d '/ ' | tr -d '\n')"
+          npm install stepzen@beta
           for IMPORT in $(echo $IMPORTS | sed "s/,/ /g")
           do
             mkdir "/github/workspace/testing-$IMPORT"
             cd "/github/workspace/testing-$IMPORT"
-            stepzen init --yes
-            stepzen import $IMPORT --silent
+            ../node_modules/.bin/stepzen init --yes
+            ../node_modules/.bin/stepzen import $IMPORT --silent
             rm -rf "/github/workspace/testing-$IMPORT"
           done
+          rm -rf /github/workspace/node_modules
