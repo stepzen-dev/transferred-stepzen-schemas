@@ -1,11 +1,11 @@
-interface Lists {
+interface List {
   id: ID!
   name: String
   webId: ID!
   memberCount: Int
 }
 
-type MailChimpLists implements Lists {}
+type MailChimpList implements List {}
 
 interface Members {
   id: ID!
