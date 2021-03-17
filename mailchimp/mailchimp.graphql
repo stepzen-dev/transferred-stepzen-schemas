@@ -1,15 +1,15 @@
-interface Lists {
+interface List {
   id: ID!
   name: String
-  web_id: ID!
+  webId: ID!
   memberCount: Int
 }
 
-type MailChimpLists implements Lists {}
+type MailChimpList implements List {}
 
 interface Members {
   id: ID!
-  email_address: String
+  emailAddress: String
   status: String
   listId: ID!
 }
@@ -17,20 +17,38 @@ interface Members {
 type MailChimpMembers implements Members {}
 
 type Query {
-  lists(id: ID!): Lists
-  MailChimpLists(id: ID!): MailChimpLists
+  list(id: ID!): List
+  lists: [List]
+  mailchimpLists: [MailChimpList]
     @supplies(query: "lists")
     @rest(
-      setters: [{ field: "memberCount", path: "stats.member_count" }]
-      endpoint: "https://$api_key:$api_password@us7.api.mailchimp.com/3.0/lists/$id"
+      setters: [
+        { field: "memberCount", path: "stats.member_count" }
+        { field: "webId", path: "web_id" }
+      ]
+      resultroot: "lists[]"
+      endpoint: "https://anystring:$api_password@$server;.api.mailchimp.com/3.0/lists/"
+      configuration: "mailchimp_config"
+    )
+  mailchimpList(id: ID!): MailChimpList
+    @supplies(query: "list")
+    @rest(
+      setters: [
+        { field: "memberCount", path: "stats.member_count" }
+        { field: "webId", path: "web_id" }
+      ]
+      endpoint: "https://anystring:$api_password@$server;.api.mailchimp.com/3.0/lists/$id"
       configuration: "mailchimp_config"
     )
   members(id: ID!, listId: ID!): Members
-  mailChimpMembers(id: ID!, listId: ID!): MailChimpMembers
+  mailchimpMembers(id: ID!, listId: ID!): MailChimpMembers
     @supplies(query: "members")
     @rest(
-      setters: [{ field: "listId", path: "list_id" }]
-      endpoint: "https://$api_key:$api_password@us7.api.mailchimp.com/3.0/lists/$listId/members/$id"
+      setters: [
+        { field: "listId", path: "list_id" }
+        { field: "emailAddress", path: "email_address" }
+      ]
+      endpoint: "https://anystring:$api_password@$server;.api.mailchimp.com/3.0/lists/$listId/members/$id"
       configuration: "mailchimp_config"
     )
 }

@@ -1,11 +1,13 @@
 # stepzen-schemas
 
-This repository contains pre-defined schemas for use with [StepZen](https://stepzen.com). Each schema directory contains a README describing the schema and providing instructions for use.
+Looking for a simple and fast way to build a GraphQL API that gets data from popular API or database services, including Airtable, Cloudinary, Mailchimp, Wordpress, FedEx, UPS, and more? [StepZen](https://stepzen.com) enables you to create a GraphQL API on any data source in minutes, starting with a template schema. 
 
-Each schema directory contains:
-1. One or more `.graphql` files that define the schema.
-2. Zero or one stepzen.config.json file - used to build any require configuration settings.
-3. A README file.
+These templates are pre-made GraphQL schemas configured with types, queries, and backends, giving you a live GraphQL API in minutes. Then you can easily easily combine, customize, and extend your schema files to combine data from multiple backend data sources.
+
+This repository contains one directory per pre-made GraphQL schemas. Each schema directory contains:
+1. One or more `.graphql` files -- the Schema Definition Language (SDL) files that define the types, queries, and connectors for the specified backend.
+2. Zero or one `stepzen.config.json` file - used to build any required configuration settings like keys, secrets etc.
+3. A README describing the schema and providing instructions for its use.
 
 For more information on how to import and deploy your GraphQL API, see this short video (1':08") on youtube >> https://youtu.be/vvfWQZ8kUBI
 
