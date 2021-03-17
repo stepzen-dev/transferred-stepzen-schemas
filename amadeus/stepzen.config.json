@@ -1,10 +1,10 @@
 {
-    "config": {
-      "questions": [
-        {
-          "name": "amadeus_config.Authorization",
-          "message": "Add the bearer token for your amadeus API with the format - Bearer XXXX"
-        }
-      ]
-    } 
+  "config": {
+    "questions": [
+      {
+        "name": "amadeus_config.Authorization",
+        "message": "Add the bearer token for your amadeus API with the format - Bearer XXXX"
+      }
+    ]
   }
+}

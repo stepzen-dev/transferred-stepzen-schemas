@@ -1,10 +1,10 @@
 {
-    "config": {
-      "questions": [
-        {
-          "name": "dev_config.username",
-          "message": "What is the username of your dev.to account?"
-        }
-      ]
-    } 
+  "config": {
+    "questions": [
+      {
+        "name": "dev_config.username",
+        "message": "What is the username of your dev.to account?"
+      }
+    ]
   }
+}

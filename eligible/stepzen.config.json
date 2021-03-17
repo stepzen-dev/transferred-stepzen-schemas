@@ -1,10 +1,10 @@
 {
-    "config": {
-      "questions": [
-        {
-          "name": "eligible_config.Authorization",
-          "message": "What is the api key to your eligible API?"
-        }
-      ]
-    } 
+  "config": {
+    "questions": [
+      {
+        "name": "eligible_config.Authorization",
+        "message": "What is the api key to your eligible API?"
+      }
+    ]
   }
+}

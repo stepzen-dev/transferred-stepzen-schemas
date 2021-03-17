@@ -1,14 +1,14 @@
 {
-    "config": {
-      "questions": [
-        {
-          "name": "dev_config.username",
-          "message": "What is the username of your DEV.to account?"
-        },
-        {
-            "name": "github_config.Authorization",
-            "message": "What is your personal access token for github API? (use the format: Bearer XXXX)"
-          }
-      ]
-    } 
+  "config": {
+    "questions": [
+      {
+        "name": "dev_config.username",
+        "message": "What is the username of your DEV.to account?"
+      },
+      {
+        "name": "github_config.Authorization",
+        "message": "What is your personal access token for github API? (use the format: Bearer XXXX)"
+      }
+    ]
   }
+}

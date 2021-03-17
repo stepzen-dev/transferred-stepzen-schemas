@@ -1,14 +1,14 @@
 {
-    "config": {
-      "questions": [
-        {
-          "name": "algolia_config.api_key",
-          "message": "What is the X-Algolia-API-Key for your Algolia instance?"
-        },
-        {
-          "name": "algolia_config.app_id",
-          "message": "What is the X-Algolia-Application-Id for your Algolia instance?"
-        }
-      ]
-    } 
+  "config": {
+    "questions": [
+      {
+        "name": "algolia_config.api_key",
+        "message": "What is the X-Algolia-API-Key for your Algolia instance?"
+      },
+      {
+        "name": "algolia_config.app_id",
+        "message": "What is the X-Algolia-Application-Id for your Algolia instance?"
+      }
+    ]
   }
+}

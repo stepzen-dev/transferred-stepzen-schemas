@@ -1,14 +1,14 @@
 {
-    "config": {
-      "questions": [
-        {
-          "name": "airtable_config.Authorization",
-          "message": "Add the api key for your airtable with the format - Bearer XXXX"
-        },
-        {
-          "name": "airtable_config.table",
-          "message": "What is the table id for your airtable?"
-        }
-      ]
-    } 
+  "config": {
+    "questions": [
+      {
+        "name": "airtable_config.Authorization",
+        "message": "Add the api key for your airtable with the format - Bearer XXXX"
+      },
+      {
+        "name": "airtable_config.table",
+        "message": "What is the table id for your airtable?"
+      }
+    ]
   }
+}

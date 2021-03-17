@@ -1,14 +1,14 @@
 {
-    "config": {
-      "questions": [
-        {
-          "name": "twilio_config.api_key",
-          "message": "What is the Account SID for your twilio API?"
-        },
-        {
-          "name": "twilio_config.api_secret",
-          "message": "What is your auth token for your twilio API?"
-        }
-      ]
-    } 
+  "config": {
+    "questions": [
+      {
+        "name": "twilio_config.api_key",
+        "message": "What is the Account SID for your twilio API?"
+      },
+      {
+        "name": "twilio_config.api_secret",
+        "message": "What is your auth token for your twilio API?"
+      }
+    ]
   }
+}
