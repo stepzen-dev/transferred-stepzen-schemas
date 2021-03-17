@@ -1,4 +1,6 @@
 {
+  "name": "dev.to",
+  "description": "",
   "config": {
     "questions": [
       {

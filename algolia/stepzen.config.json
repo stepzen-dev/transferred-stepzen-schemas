@@ -1,4 +1,6 @@
 {
+  "name": "Algolia",
+  "description": "",
   "config": {
     "questions": [
       {

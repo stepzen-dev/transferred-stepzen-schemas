@@ -1,4 +1,6 @@
 {
+  "name": "Wordpress",
+  "description": "",
   "config": {
     "questions": [
       {

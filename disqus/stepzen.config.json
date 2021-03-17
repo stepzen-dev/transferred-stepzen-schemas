@@ -1,4 +1,6 @@
 {
+  "name": "Disqus",
+  "description": "",
   "config": {
     "questions": [
       {

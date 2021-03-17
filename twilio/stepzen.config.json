@@ -1,4 +1,6 @@
 {
+  "name": "Twilio",
+  "description": "",
   "config": {
     "questions": [
       {

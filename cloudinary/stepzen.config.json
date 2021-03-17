@@ -1,4 +1,6 @@
 {
+  "name": "Cloudinary",
+  "description": "",
   "config": {
     "questions": [
       {
