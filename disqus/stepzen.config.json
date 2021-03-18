@@ -1,10 +1,12 @@
 {
-    "config": {
-      "questions": [
-        {
-          "name": "disqus_config.api_key",
-          "message": "What is the api_key for your disqus API?"
-        }
-      ]
-    } 
+  "name": "Disqus",
+  "description": "",
+  "config": {
+    "questions": [
+      {
+        "name": "disqus_config.api_key",
+        "message": "What is the api_key for your disqus API?"
+      }
+    ]
   }
+}

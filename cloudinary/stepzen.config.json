@@ -1,18 +1,20 @@
 {
-    "config": {
-      "questions": [
-        {
-          "name": "cloudinary_config.api_key",
-          "message": "What is the api_key for your cloudinary API?"
-        },
-        {
-          "name": "cloudinary_config.api_secret",
-          "message": "What is the api_secret for your cloudinary API?"
-        },
-        {
-          "name": "cloudinary_config.cloud_name",
-          "message": "What is the cloud_name for your cloudinary API?"
-        }
-      ]
-    } 
+  "name": "Cloudinary",
+  "description": "",
+  "config": {
+    "questions": [
+      {
+        "name": "cloudinary_config.api_key",
+        "message": "What is the api_key for your cloudinary API?"
+      },
+      {
+        "name": "cloudinary_config.api_secret",
+        "message": "What is the api_secret for your cloudinary API?"
+      },
+      {
+        "name": "cloudinary_config.cloud_name",
+        "message": "What is the cloud_name for your cloudinary API?"
+      }
+    ]
   }
+}

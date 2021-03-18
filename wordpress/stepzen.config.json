@@ -1,14 +1,16 @@
 {
-    "config": {
-      "questions": [
-        {
-          "name": "wordpress_config.username",
-          "message": "What is the wordpress username?"
-        },
-        {
-          "name": "wordpress_config.password",
-          "message": "What is the wordpress password?"
-        }
-      ]
-    } 
+  "name": "Wordpress",
+  "description": "",
+  "config": {
+    "questions": [
+      {
+        "name": "wordpress_config.username",
+        "message": "What is the wordpress username?"
+      },
+      {
+        "name": "wordpress_config.password",
+        "message": "What is the wordpress password?"
+      }
+    ]
   }
+}

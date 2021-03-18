@@ -1,4 +1,6 @@
 {
+  "name": "Mailchimp",
+  "description": "",
   "config": {
     "questions": [
       {
