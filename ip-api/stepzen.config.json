@@ -1,0 +1,13 @@
+{
+  "name": "IP-API",
+  "description": "",
+  "config": {
+    "default": "ipapi_default",
+    "questions": [
+      {
+        "name": "ipapi_config.api_key",
+        "message": "What is your IP-API API key?"
+      }
+    ]
+  }
+}

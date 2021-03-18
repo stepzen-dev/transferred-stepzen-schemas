@@ -1,0 +1,13 @@
+{
+  "name": "UPS",
+  "description": "",
+  "config": {
+    "default": "ups_default",
+    "questions": [
+      {
+        "name": "ups_config.api_key",
+        "message": "What is your UPS API key?"
+      }
+    ]
+  }
+}

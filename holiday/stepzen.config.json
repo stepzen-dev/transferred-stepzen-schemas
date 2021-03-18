@@ -2,6 +2,12 @@
   "name": "Holiday API",
   "description": "",
   "config": {
-    "questions": []
+    "default": "holidayapi_default",
+    "questions": [
+      {
+        "name": "holidayapi_default.api_key",
+        "message": "What is your HolidayAPI API key?"
+      }
+    ]
   }
 }

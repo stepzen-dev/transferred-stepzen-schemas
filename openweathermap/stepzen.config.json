@@ -1,0 +1,13 @@
+{
+  "name": "OpenWeatherMap",
+  "description": "",
+  "config": {
+    "default": "owm_default",
+    "questions": [
+      {
+        "name": "owm_config.api_key",
+        "message": "What is your OpenWeatherMap API key?"
+      }
+    ]
+  }
+}

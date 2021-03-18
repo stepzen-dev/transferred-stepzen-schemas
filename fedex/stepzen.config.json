@@ -1,0 +1,13 @@
+{
+  "name": "FedEx",
+  "description": "",
+  "config": {
+    "default": "fedex_default",
+    "questions": [
+      {
+        "name": "fedex_api_key.api_key",
+        "message": "What is your FedEx API key?"
+      }
+    ]
+  }
+}
