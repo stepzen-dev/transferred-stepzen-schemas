@@ -1,6 +1,7 @@
 {
   "name": "Airtable",
-  "description": "",
+  "description": "Sample of a custom airtable schema using the Event Marketing Template base model.",
+  "categories": ["jamstack"],
   "config": {
     "questions": [
       {

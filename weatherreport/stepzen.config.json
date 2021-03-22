@@ -1,7 +1,14 @@
 {
   "name": "Weather",
-  "description": "",
+  "description": "Makes current weather conditions available based on latitude/longitude and through the OpenWeatherMap API.",
+  "categories": ["personalization"],
   "config": {
-    "questions": []
+    "default": "owm_default",
+    "questions": [
+      {
+        "name": "owm_config.OpenWeatherMapAppID",
+        "message": "What is the API key to your OpenWeatherMap App?"
+      }
+    ]
   }
 }

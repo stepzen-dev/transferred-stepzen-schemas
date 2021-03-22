@@ -1,6 +1,7 @@
 {
   "name": "Algolia",
-  "description": "",
+  "description": "Power your app with AI-powered search & discovery from algolia using the REST API.",
+  "categories": ["jamstack"],
   "config": {
     "questions": [
       {

@@ -1,6 +1,7 @@
 {
   "name": "dev.to",
-  "description": "",
+  "description": "Fetch articles from your dev.to blog using the REST API.",
+  "categories": ["content"],
   "config": {
     "questions": [
       {
