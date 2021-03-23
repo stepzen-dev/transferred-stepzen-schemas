@@ -1,6 +1,7 @@
 {
   "name": "Eligible",
-  "description": "",
+  "description": "Add insurance billing experiences into your applications using the Eligible REST API.",
+  "categories": ["business-services"],
   "config": {
     "questions": [
       {
