@@ -45,7 +45,7 @@ $ stepzen import airtable
 3. Now the project should include the following directory layout in your root folder. Add your credentials in the config.yaml to properly deploy the StepZen Endpoint.
 
 ```shell
-🐒➔ tree
+% tree
 .
 ├── index.graphql
 ├── config.yaml
@@ -88,7 +88,7 @@ Successfully deployed foo/bar at 8:06:59 AM
 Your endpoint is available at https://accountname.stepzen.net/foo/bar/__graphql
 ```
 
-Done! The StepZen Dashboard should be deployed at `http://localhost:5000/foo/bar` with an explorer listing the query documentation. 🚀
+Done! The StepZen Dashboard should be deployed at `http://localhost:5000/foo/bar` with an explorer listing the query documentation.
 
 ![image](https://user-images.githubusercontent.com/1117488/112496392-f05dc580-8d41-11eb-8c33-87817bd7ec97.png)
 
