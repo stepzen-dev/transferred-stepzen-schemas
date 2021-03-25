@@ -39,7 +39,6 @@ $ stepzen import airtable
 3. Now the project should include the following directory layout in your root folder.  Add your credentials in the config.yaml to properly deploy the StepZen Endpoint.
 
 ```shell
-➔ tree
 .
 ├── index.graphql
 ├── config.yaml
