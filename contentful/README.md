@@ -90,7 +90,7 @@ Your endpoint is available at https://accountname.stepzen.net/foo/bar/__graphql
 
 Done! The StepZen Dashboard should be deployed at `http://localhost:5000/foo/bar` with an explorer listing the query documentation. 🚀
 
-![Localhost](https://res.cloudinary.com/dvfhnc6ui/image/upload/v1614608265/stepzen-localhost-dashboard.png)
+![image](https://user-images.githubusercontent.com/1117488/112552224-ae537480-8d7f-11eb-8c12-2e87fa951bb7.png)
 
 ## Modify the Imported Template <a href="import"></a>
 
