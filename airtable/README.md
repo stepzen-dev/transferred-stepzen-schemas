@@ -127,7 +127,7 @@ Now you can move on to modifying stuff.
    1. Make sure that your `interface` and `setters` are in sync.
 1. If you want to link two types together (let us say you want to make `Order` a child of `Customer`), make sure that you have a query on `Order` that can take some fields available in `Customer` and return all the orders. In our case, we used the query `venue (id: ID!)` and passed it the parameter `venueId` which was available in `Event`.
 
-That should do it. Hit us up on discord if you run into any toruble.
+That should do it. Hit us up on discord if you run into any trouble.
 
 ##
 

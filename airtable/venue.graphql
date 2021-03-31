@@ -5,7 +5,6 @@ interface Venue {
 }
 
 type AirtableVenue implements Venue {}
-
 type Query {
     venue (id: ID!): Venue
     airtableVenue (id: ID!): [AirtableVenue]

@@ -1,4 +1,4 @@
 extend interface Event {
   venue: Venue
-    @materializer(query: "venue", arguments: [{ name: "id", field: "venueId" }])
+    @materializer(arguments: [{ name: "id", field: "venueId" }], query: "venue")
 }
