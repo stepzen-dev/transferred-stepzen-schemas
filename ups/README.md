@@ -2,7 +2,6 @@
 For a full tutorial on importing schemas into your StepZen project, the main [Readme](https://github.com/steprz/stepzen-schemas) of this repository provides step-by-step instructions to do so.
 
 ## StepZen Import <a href="import"></a>
-<em>The location-weatherreport is an [directive schema](https://my.stepzen.com/docs/reference/code/#set-of-directives) that uses the @materializer directive to stitch your data together.  Read more about how StepZen directives can unify your data here, https://my.stepzen.com/docs/reference/code/#set-of-directives</em>
 
 1. Before importing the schema, either create a new project or access your existing project in the command line.
 
@@ -17,10 +16,10 @@ Access an existing project
 $ cd my-existing-project
 ```
 
-2. Importing the schema. Be sure to import location and weatherreport templates to use this directive schema properly.
+2. Importing the schema.
 
 ```bash
-$ stepzen import location weatherreport location-weatherreport
+$ stepzen import delivery
 ```
 
 3. Now the project should include the following directory layout in your root folder.
@@ -30,11 +29,13 @@ $ stepzen import location weatherreport location-weatherreport
 .
 ├── index.graphql
 ├── config.yaml
-└── location-weatherreport
-    ├── Location-Weatherreport.graphql
+└── delivery
+    ├── Delivery.graphql
+    ├── DeliveryFedEx.graphql
+    ├── DeliveryUPS.graphql
     └── README.md
 
-1 directories, 4 files
+1 directories, 6 files
 ```
 
 4. Start up the StepZen Endpoint. Provide the directory path to deploy your endpoint appropriately.  

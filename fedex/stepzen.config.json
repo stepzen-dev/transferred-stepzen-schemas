@@ -1,0 +1,26 @@
+{
+  "name": "FedEx",
+  "description": "Extracting useful data types for delivery status from the FedEx REST API",
+  "categories": ["delivery"],
+  "config": {
+    "default": "fedex_default",
+    "questions": [
+      {
+        "name": "fedex_config.accountnumber",
+        "message": "What is the account number to your FedEx account?"
+      },
+      {
+        "name": "fedex_config.password",
+        "message": "What is the password to your FedEx account?"
+      },
+      {
+        "name": "fedex_config.key",
+        "message": "What is the API key to your FedEx account?"
+      },
+      {
+        "name": "fedex_config.meternumber",
+        "message": "What is the meternumber to your FedEx account?"
+      }
+    ]
+  }
+}

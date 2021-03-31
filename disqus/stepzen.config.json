@@ -1,6 +1,7 @@
 {
   "name": "Disqus",
-  "description": "",
+  "description": "Fetching a list of posts on a Disqus forum using the REST API.",
+  "categories": ["content"],
   "config": {
     "questions": [
       {

@@ -1,6 +1,7 @@
 {
   "name": "Github",
-  "description": "",
+  "description": "Fetch user and repository information from the Github REST API.",
+  "categories": ["developer-tools"],
   "config": {
     "questions": [
       {

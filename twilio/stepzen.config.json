@@ -1,6 +1,7 @@
 {
   "name": "Twilio",
-  "description": "",
+  "description": "Programmatically make and receive phone calls, send and receive text messages, and perform other communication functions using Twilio's REST endpoints.",
+  "categories": ["marketing-communications"],
   "config": {
     "questions": [
       {
