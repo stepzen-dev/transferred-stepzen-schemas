@@ -1,6 +1,7 @@
 {
   "name": "Mailchimp",
-  "description": "",
+  "description": "Marketing REST API to drive email marketing campaigns with custom data pulled directly from your app.",
+  "categories": ["marketing-communications"],
   "config": {
     "questions": [
       {

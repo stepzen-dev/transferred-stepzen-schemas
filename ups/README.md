@@ -1,21 +1,7 @@
 ### Overview
 For a full tutorial on importing schemas into your StepZen project, the main [Readme](https://github.com/steprz/stepzen-schemas) of this repository provides step-by-step instructions to do so.
 
-## Preparing your Airtable Configuration
-
-<em>First step to importing a schema into your StepZen SDL (Schema Definition Language) is to prepare the API for import. If you already have your API configurations, [skip](#import) this section.</em>
-
-The airtable API is not a predefined schema, so your Rest API endpoint is dependent on the template you selected when creating your table. If you want to configure your custom table, replace the `/Events/` path with the name of your table.
-
-1. To create a net new table, create an account and choose the Event Marketing Template. 
-2. Head over to your account and grab the api key, https://airtable.com/account
-
-```bash
-https://api.airtable.com/v0/$table/Events/$id
-```
-
 ## StepZen Import <a href="import"></a>
-<em>The StepZen CLI will import the schema and request your authentication configurations. You can add the configurations in the command line or add the configurations after import.</em>
 
 1. Before importing the schema, either create a new project or access your existing project in the command line.
 
@@ -30,32 +16,26 @@ Access an existing project
 $ cd my-existing-project
 ```
 
-2. Importing the schema.  As mentioned earlier, you can skip the configuration questions by pressing `[Enter]` and adding the configurations manually.
+2. Importing the schema.
 
 ```bash
-$ stepzen import airtable
+$ stepzen import delivery
 ```
 
-3. Now the project should include the following directory layout in your root folder.  Add your credentials in the config.yaml to properly deploy the StepZen Endpoint.
+3. Now the project should include the following directory layout in your root folder.
 
 ```shell
 🐒➔ tree
 .
 ├── index.graphql
 ├── config.yaml
-└── airtable
-    ├── airtable.graphql
+└── delivery
+    ├── Delivery.graphql
+    ├── DeliveryFedEx.graphql
+    ├── DeliveryUPS.graphql
     └── README.md
 
-1 directories, 4 files
-```
-
-The config.yaml configuration for airtable.
-```bash
-- configuration:  
-      name: airtable_config
-      Authorization: Bearer {{ Bearer }}
-      table: {{ table }}
+1 directories, 6 files
 ```
 
 4. Start up the StepZen Endpoint. Provide the directory path to deploy your endpoint appropriately.  

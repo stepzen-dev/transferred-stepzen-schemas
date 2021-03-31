@@ -1,6 +1,7 @@
 {
   "name": "Cloudinary",
-  "description": "",
+  "description": "Fetch optimized videos and images from cloudinary using the REST API.",
+  "categories": ["jamstack"],
   "config": {
     "questions": [
       {

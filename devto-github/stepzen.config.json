@@ -1,6 +1,7 @@
 {
   "name": "dev.to / Github",
-  "description": "",
+  "description": "Combining the dev.to and Github REST API to create a detailed and integrated Developer Portfolio.",
+  "categories": ["content"],
   "config": {
     "questions": [
       {

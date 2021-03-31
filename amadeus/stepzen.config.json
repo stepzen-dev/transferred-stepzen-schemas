@@ -1,6 +1,7 @@
 {
   "name": "Amadeus",
-  "description": "",
+  "description": "Fetch up-to-date and relevant flight information from amadeus using the REST API.",
+  "categories": ["business-services"],
   "config": {
     "questions": [
       {
