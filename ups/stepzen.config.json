@@ -1,12 +1,21 @@
 {
   "name": "UPS",
-  "description": "",
+  "description": "Extracting useful data types for delivery status from the voluminous UPS REST API",
+  "categories": ["delivery"],
   "config": {
     "default": "ups_default",
     "questions": [
       {
-        "name": "ups_config.api_key",
-        "message": "What is your UPS API key?"
+        "name": "ups_config.user",
+        "message": "What is the username to your UPS account?"
+      },
+      {
+        "name": "ups_config.password",
+        "message": "What is the password to your UPS account?"
+      },
+      {
+        "name": "ups_config.token",
+        "message": "What is the API token to your UPS account?"
       }
     ]
   }

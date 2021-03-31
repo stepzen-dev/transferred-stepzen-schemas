@@ -1,6 +1,7 @@
 {
   "name": "Wordpress",
-  "description": "",
+  "description": "Free and open-source content management system providing REST endpoints representing post, pages, and taxonomies.",
+  "categories": ["Content"],
   "config": {
     "questions": [
       {

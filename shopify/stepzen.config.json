@@ -1,6 +1,7 @@
 {
   "name": "Shopify",
-  "description": "",
+  "description": "Admin and Storefront REST API configuring an all-in-one ecommerce experience.",
+  "categories": ["ecommerce"],
   "config": {
     "questions": [
       {
