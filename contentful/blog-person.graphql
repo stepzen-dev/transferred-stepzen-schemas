@@ -1,0 +1,7 @@
+extend interface Blog {
+  author: Person
+    @materializer(
+      query: "person"
+      arguments: [{ name: "id", field: "authorId" }]
+    )
+}
