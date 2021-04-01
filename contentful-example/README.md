@@ -107,7 +107,7 @@ Examine `person.graphql`. It is very similar.
 The last file you should look at is `blog-person.graphql`. One of the superb things about GraphQL is that different interfaces/types can be linked together. What we are saying in this fragment:
 
 ```graphql
-xtend interface Blog {
+extend interface Blog {
   author: Person
     @materializer(
       query: "person"
