@@ -1,5 +1,6 @@
 ### Overview
-For a full tutorial on importing schemas into your StepZen project, the main [Readme](https://github.com/steprz/stepzen-schemas) of this repository provides step-by-step instructions to do so.
+
+This schema will get user details and repositories from GitHub. It requires a [GitHub personal access token](https://github.com/settings/tokens), which is necessary for access to the GitHub API. For a full tutorial on importing schemas into your StepZen project, the main [Readme](https://github.com/steprz/stepzen-schemas) of this repository provides step-by-step instructions to do so.
 
 ## Preparing your Github Configuration
 

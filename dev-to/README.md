@@ -1,5 +1,6 @@
 ### Overview
-For a full tutorial on importing schemas into your StepZen project, the main [Readme](https://github.com/steprz/stepzen-schemas) of this repository provides step-by-step instructions to do so.
+
+This schema will pull a full list of articles and individual article content for a user by their username from [dev.to](https://dev.to). For a full tutorial on importing schemas into your StepZen project, the main [Readme](https://github.com/steprz/stepzen-schemas) of this repository provides step-by-step instructions to do so.
 
 ## Preparing your Dev.to Configuration
 

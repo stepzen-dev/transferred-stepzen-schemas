@@ -1,4 +1,7 @@
 ### Overview
+
+This schema will get articles by username from a [dev.to](https://dev.to) account and join them with repositories and user details from GitHub. In order to work, the schema requires a DEV.to username and a [GitHub personal access token](https://github.com/settings/tokens), which is required for GitHub API access. You can read more about how to use this schema to [create a full developer portfolio here](https://stepzen.com/blog/developer-portfolio) or read [how this schema was built here](https://stepzen.com/blog/rest-to-graphql).
+
 For a full tutorial on importing schemas into your StepZen project, the main [Readme](https://github.com/steprz/stepzen-schemas) of this repository provides step-by-step instructions to do so.
 
 ## Preparing your Dev.to Configuration
