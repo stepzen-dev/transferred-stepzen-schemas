@@ -4,11 +4,6 @@
   "categories": ["personalization"],
   "config": {
     "default": "ipapi_default",
-    "questions": [
-      {
-        "name": "ipapi_config.ipApiKey",
-        "message": "What is the API key to your IP-API geolocation App?"
-      }
-    ]
+    
   }
 }
