@@ -5,13 +5,13 @@ type Person {
   company: String!
 }
 type Query {
-  contentfulPerson(id: ID!): ContentfulPerson
+  contentfulPerson(id: ID!): Person
     @rest(
       endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries/$id"
       resultroot: "fields"
       configuration: "contentful_config"
     )
-  contentfulPersons: [ContentfulPerson]
+  contentfulPersons: [Person]
     @rest(
       endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries?content_type=person"
       resultroot: "items[].fields"

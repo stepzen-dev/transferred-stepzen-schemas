@@ -7,7 +7,7 @@ type Blog {
   authorId: ID!
 }
 type Query {
-  contentfulBlog(id: ID!): ContentfulBlog
+  contentfulBlog(id: ID!): Blog
     @rest(
       endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries/$id"
       resultroot: "fields"
@@ -17,7 +17,7 @@ type Query {
       ]
       configuration: "contentful_config"
     )
-  contentfulBlogs: [ContentfulBlog]
+  contentfulBlogs: [Blog]
     @rest(
       endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries?content_type=blogPost"
       resultroot: "items[].fields"
@@ -27,7 +27,7 @@ type Query {
       ]
       configuration: "contentful_config"
     )
-  contentfulSearchBlogs(title: String!): [ContentfulBlog]
+  contentfulSearchBlogs(title: String!): [Blog]
     @rest(
       endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries?content_type=blogPost&fields.title[match]=%22$title%22"
       resultroot: "items[].fields"
