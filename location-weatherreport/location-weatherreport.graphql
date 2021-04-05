@@ -1,0 +1,3 @@
+extend interface Location {
+  weather: WeatherReport @materializer(query: "weatherReport")
+}
