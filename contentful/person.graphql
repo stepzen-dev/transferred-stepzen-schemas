@@ -1,0 +1,20 @@
+type Person {
+  title: String
+  name: String!
+  email: String
+  company: String!
+}
+type Query {
+  contentfulPerson(id: ID!): ContentfulPerson
+    @rest(
+      endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries/$id"
+      resultroot: "fields"
+      configuration: "contentful_config"
+    )
+  contentfulPersons: [ContentfulPerson]
+    @rest(
+      endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries?content_type=person"
+      resultroot: "items[].fields"
+      configuration: "contentful_config"
+    )
+}

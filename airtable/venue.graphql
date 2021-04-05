@@ -1,34 +1,29 @@
-interface Venue {
-    id: ID!
-    name: String!
-    address: String!
+type Venue {
+  id: ID!
+  name: String!
+  address: String!
 }
 
-type AirtableVenue implements Venue {}
-
 type Query {
-    venue (id: ID!): Venue
-    airtableVenue (id: ID!): [AirtableVenue]
-      @supplies (query: "venue")
-      @rest(
+  airtableVenue(id: ID!): [Venue]
+    @rest(
       setters: [
         { field: "name", path: "fields.Name" }
         { field: "address", path: "fields.Address" }
-        
       ]
+
       resultroot: ""
       endpoint: "https://api.airtable.com/v0/$baseid/Venues/$id"
       configuration: "airtable_config"
     )
-    venues : [Venue]
-    airtableVenues : [AirtableVenue]
-      @supplies (query: "venues")
-      @rest(
-          resultroot: "records[]"
+  airtableVenues: [Venue]
+    @rest(
+      resultroot: "records[]"
       setters: [
         { field: "name", path: "fields.Name" }
         { field: "address", path: "fields.Address" }
       ]
+
       endpoint: "https://api.airtable.com/v0/$baseid/Venues"
       configuration: "airtable_config"
     )

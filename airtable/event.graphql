@@ -1,4 +1,4 @@
-interface Event {
+type Event {
   id: String!
   name: String
   type: String
@@ -6,50 +6,43 @@ interface Event {
   details: String
 }
 
-type AirtableEvent implements Event {}
-
 type Query {
-  event(id: String!): Event
-  airtableEvent(id: String!): AirtableEvent
-    @supplies(query: "event")
+  airtableEvent(id: String!): Event
     @rest(
       setters: [
         { field: "name", path: "fields.Name" }
         { field: "type", path: "fields.Type" }
         { field: "details", path: "fields.Details" }
-        { field: "venueId", path: "fields.Venue[]"}
+        { field: "venueId", path: "fields.Venue[]" }
       ]
+
       resultroot: ""
       endpoint: "https://api.airtable.com/v0/$baseid/Events/$id"
       configuration: "airtable_config"
     )
-  events: [Event]
-  airtablesEvents : [AirtableEvent]
-    @supplies(query: "events")
+  airtablesEvents: [Event]
     @rest(
       resultroot: "records[]"
       setters: [
         { field: "name", path: "fields.Name" }
         { field: "type", path: "fields.Type" }
         { field: "details", path: "fields.Details" }
-        { field: "venueId", path: "fields.Venue[]"}
+        { field: "venueId", path: "fields.Venue[]" }
       ]
-      
+
       endpoint: "https://api.airtable.com/v0/$baseid/Events"
       configuration: "airtable_config"
     )
-  searchEvents(type: String!): [Event]
-  airtableSearchEvents (type: String!): [AirtableEvent]
-    @supplies(query: "searchEvents")
+  airtableSearchEvents(type: String!): [Event]
     @rest(
       resultroot: "records[]"
       setters: [
         { field: "name", path: "fields.Name" }
         { field: "type", path: "fields.Type" }
         { field: "details", path: "fields.Details" }
-        { field: "venueId", path: "fields.Venue[]"}
+        { field: "venueId", path: "fields.Venue[]" }
       ]
-      
+
       endpoint: "https://api.airtable.com/v0/$baseid/Events?filterByFormula=Type=%22$type%22"
       configuration: "airtable_config"
     )

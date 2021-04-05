@@ -1,0 +1,40 @@
+type Blog {
+  title: String!
+  slug: String!
+  description: String
+  body: String!
+  date: String
+  authorId: ID!
+}
+type Query {
+  contentfulBlog(id: ID!): ContentfulBlog
+    @rest(
+      endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries/$id"
+      resultroot: "fields"
+      setters: [
+        { field: "date", path: "publishDate" }
+        { field: "authorId", path: "author.sys.id" }
+      ]
+      configuration: "contentful_config"
+    )
+  contentfulBlogs: [ContentfulBlog]
+    @rest(
+      endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries?content_type=blogPost"
+      resultroot: "items[].fields"
+      setters: [
+        { field: "date", path: "publishDate" }
+        { field: "authorId", path: "author.sys.id" }
+      ]
+      configuration: "contentful_config"
+    )
+  contentfulSearchBlogs(title: String!): [ContentfulBlog]
+    @rest(
+      endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries?content_type=blogPost&fields.title[match]=%22$title%22"
+      resultroot: "items[].fields"
+      setters: [
+        { field: "date", path: "publishDate" }
+        { field: "authorId", path: "author.sys.id" }
+      ]
+      configuration: "contentful_config"
+    )
+}

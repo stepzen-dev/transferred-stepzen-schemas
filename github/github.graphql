@@ -1,50 +1,40 @@
-interface Repository {
+type Repository {
   id: ID!
   name: String
   private: Boolean
   node_id: String
 }
 
-type GithubRepo implements Repository {}
-
-interface GHUser {
+type GHUser {
   id: ID!
   username: String
   node_id: String
   avatar_url: String
 }
 
-type GithubUser implements GHUser {}
-
-interface Follower {
+type Follower {
   id: ID!
   username: String
   node_id: String
   avatar_url: String
 }
-
-type GithubFollower implements Follower {}
 
 type Query {
-  ghUser(username: String!): GHUser
-  githubUser(username: String!): GithubUser
-    @supplies(query: "ghUser")
+  githubUser(username: String!): GHUser
     @rest(
+      setters: [{ field: "username", path: "login" }]
       resultroot: ""
       endpoint: "https://api.github.com/users/$username"
       configuration: "github_config"
     )
-  followers(username: String!): [Follower]
-  githubFollowers(username: String!): [GithubFollower]
-    @supplies(query: "followers")
+  githubFollowers(username: String!): [Follower]
     @rest(
+      setters: [{ field: "username", path: "login" }]
       endpoint: "https://api.github.com/users/$username/followers"
       configuration: "github_config"
     )
   # adding ?type=private to test bearer token authentication on Boolean type
-  repositories(type: String!): [Repository]
-  githubRepo(type: String!): [GithubRepo]
-    @supplies(query: "repositories")
+  githubRepo(type: String!): [Repository]
     @rest(
       endpoint: "https://api.github.com/user/repos?type=$type"
       configuration: "github_config"
