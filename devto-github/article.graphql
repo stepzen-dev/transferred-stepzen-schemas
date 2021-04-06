@@ -1,4 +1,4 @@
-interface Article {
+type Article {
   id: ID!
   title: String!
   description: String
@@ -22,12 +22,8 @@ interface Article {
   body_markdown: String
 }
 
-type ArticleFromRest implements Article {}
-
 type Query {
   publishedArticleById(id: ID!): Article
-  publishedArticleByIdFromRest(id: ID!): ArticleFromRest
-    @supplies(query: "publishedArticleById")
     @rest(
       endpoint: "https://dev.to/api/articles/$id"
       setters: [
@@ -37,8 +33,6 @@ type Query {
       ]
     )
   publishedArticleByPath(path: String!): Article
-  publishedArticleByPathFromRest(path: String!): ArticleFromRest
-    @supplies(query: "publishedArticleByPath")
     @rest(
       endpoint: "https://dev.to/api/articles/$path"
       setters: [
@@ -48,8 +42,6 @@ type Query {
       ]
     )
   myArticles: [Article]
-  myArticlesFromRest: [ArticleFromRest]
-    @supplies(query: "myArticles")
     @rest(
       endpoint: "https://dev.to/api/articles?username=$username&per_page=1000"
       setters: [

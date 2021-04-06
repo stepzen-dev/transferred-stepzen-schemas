@@ -1,4 +1,4 @@
-interface Repo {
+type Repo {
   id: ID!
   name: String!
   html_url: String!
@@ -8,19 +8,13 @@ interface Repo {
   updated_at: Date
 }
 
-type RepoFromRest implements Repo {}
-
 type Query {
   repos: [Repo]
-  reposFromRest: [RepoFromRest]
-    @supplies(query: "repos")
     @rest(
       endpoint: "https://api.github.com/user/repos?sort=updated&type=owner&per_page=10"
       configuration: "github_config"
     )
   reposByLogin(login: String!): [Repo]
-  reposByLoginFromRest(login: String!): [RepoFromRest]
-    @supplies(query: "reposByLogin")
     @rest(
       endpoint: "https://api.github.com/users/$login/repos?sort=updated&type=owner&per_page=10"
       configuration: "github_config"

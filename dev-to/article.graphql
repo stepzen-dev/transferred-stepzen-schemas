@@ -1,4 +1,4 @@
-interface DevToArticle {
+type DevToArticle {
   id: ID!
   title: String!
   description: String
@@ -15,12 +15,8 @@ interface DevToArticle {
   body_markdown: String
 }
 
-type DevToArticleFromRest implements DevToArticle {}
-
 type Query {
   publishedDevToArticleById(id: ID!): DevToArticle
-  publishedDevToArticleByIdFromRest(id: ID!): DevToArticleFromRest
-    @supplies(query: "publishedDevToArticleById")
     @rest(
       endpoint: "https://dev.to/api/articles/$id"
       setters: [
@@ -29,8 +25,6 @@ type Query {
       ]
     )
   publishedDevToArticleByPath(path: String!): DevToArticle
-  publishedDevToArticleByPathFromRest(path: String!): DevToArticleFromRest
-    @supplies(query: "publishedDevToArticleByPath")
     @rest(
       endpoint: "https://dev.to/api/articles/$path"
       setters: [
@@ -39,8 +33,6 @@ type Query {
       ]
     )
   myDevToArticles: [DevToArticle]
-  myDevToArticlesFromRest: [DevToArticleFromRest]
-    @supplies(query: "myDevToArticles")
     @rest(
       endpoint: "https://dev.to/api/articles?username=$username"
       setters: [
