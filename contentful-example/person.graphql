@@ -1,25 +1,27 @@
 interface Person {
-    title: String
-    name: String!
-    email: String
-    company: String!
-    
+  title: String
+  name: String!
+  email: String
+  company: String!
 }
 type ContentfulPerson implements Person {}
 type Query {
-    person (id: ID!): Person
-    contentfulPerson (id: ID!): ContentfulPerson
-        @supplies (query: "person")
-        @rest (endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries/$id",
-                resultroot: "fields",
-                
-                configuration: "contentful_config")
-    persons: [Person]
-    contentfulPersons: [ContentfulPerson]
-        @supplies (query: "persons")
-        @rest (endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries?content_type=person",
-                resultroot: "items[].fields",
-               
-                configuration: "contentful_config")
-    
+  person(id: ID!): Person
+  contentfulPerson(id: ID!): ContentfulPerson
+    @supplies(query: "person")
+    @rest(
+      endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries/$id"
+      resultroot: "fields"
+
+      configuration: "contentful_config"
+    )
+  persons: [Person]
+  contentfulPersons: [ContentfulPerson]
+    @supplies(query: "persons")
+    @rest(
+      endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries?content_type=person"
+      resultroot: "items[].fields"
+
+      configuration: "contentful_config"
+    )
 }
