@@ -17,14 +17,14 @@ type Query {
         { field: "name", path: "fields.Name" }
         { field: "type", path: "fields.Type" }
         { field: "details", path: "fields.Details" }
-        { field: "venueId", path: "fields.Venue[]"}
+        { field: "venueId", path: "fields.Venue[]" }
       ]
       resultroot: ""
       endpoint: "https://api.airtable.com/v0/$baseid/Events/$id"
       configuration: "airtable_config"
     )
   events: [Event]
-  airtablesEvents : [AirtableEvent]
+  airtablesEvents: [AirtableEvent]
     @supplies(query: "events")
     @rest(
       resultroot: "records[]"
@@ -32,14 +32,14 @@ type Query {
         { field: "name", path: "fields.Name" }
         { field: "type", path: "fields.Type" }
         { field: "details", path: "fields.Details" }
-        { field: "venueId", path: "fields.Venue[]"}
+        { field: "venueId", path: "fields.Venue[]" }
       ]
-      
+
       endpoint: "https://api.airtable.com/v0/$baseid/Events"
       configuration: "airtable_config"
     )
   searchEvents(type: String!): [Event]
-  airtableSearchEvents (type: String!): [AirtableEvent]
+  airtableSearchEvents(type: String!): [AirtableEvent]
     @supplies(query: "searchEvents")
     @rest(
       resultroot: "records[]"
@@ -47,9 +47,9 @@ type Query {
         { field: "name", path: "fields.Name" }
         { field: "type", path: "fields.Type" }
         { field: "details", path: "fields.Details" }
-        { field: "venueId", path: "fields.Venue[]"}
+        { field: "venueId", path: "fields.Venue[]" }
       ]
-      
+
       endpoint: "https://api.airtable.com/v0/$baseid/Events?filterByFormula=Type=%22$type%22"
       configuration: "airtable_config"
     )
