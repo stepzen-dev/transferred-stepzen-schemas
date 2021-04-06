@@ -9,7 +9,7 @@ type Location {
 }
 
 type Query {
-  locationIpApi(ip: String!): Location
+  location(ip: String!): Location
     @connector(
       type: "__ipapi_location_ip_connector__"
       configuration: "ipapi_default"

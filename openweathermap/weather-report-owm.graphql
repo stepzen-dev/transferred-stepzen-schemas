@@ -9,7 +9,7 @@ type WeatherReport {
 }
 
 type Query {
-  weatherReportOWM(latitude: Float!, longitude: Float!): WeatherReport
+  weatherReport(latitude: Float!, longitude: Float!): WeatherReport
     @connector(
       type: "__openweathermap_weather_location_connector__"
       configuration: "owm_default"
