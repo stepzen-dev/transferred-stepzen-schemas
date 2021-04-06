@@ -1,4 +1,5 @@
 ### Overview
+
 For a full tutorial on importing schemas into your StepZen project, the main [Readme](https://github.com/steprz/stepzen-schemas) of this repository provides step-by-step instructions to do so.
 
 ## StepZen Import <a href="import"></a>
@@ -6,12 +7,14 @@ For a full tutorial on importing schemas into your StepZen project, the main [Re
 1. Before importing the schema, either create a new project or access your existing project in the command line.
 
 Creating a new StepZen SDL project.
+
 ```bash
 $ mkdir my-app
 $ cd my-app
 ```
 
 Access an existing project
+
 ```bash
 $ cd my-existing-project
 ```
@@ -28,23 +31,22 @@ $ stepzen import weatherreport
 🐒➔ tree
 .
 ├── index.graphql
-├── config.yaml
 └── weatherreport
     ├── WeatherReport.graphql
-    ├── WeatherReportOWM.graphql
     └── README.md
 
-1 directories, 5 files
+1 directories, 3 files
 ```
 
 4. Start up the StepZen Endpoint. Provide the directory path to deploy your endpoint appropriately.  
-<em>https://accountname.stepzen.net/foo/bar/__graphql</em>
-
+   <em>https://accountname.stepzen.net/foo/bar/__graphql</em>
 
 ```bash
 $ stepzen start foo/bar
 ```
+
 A successfull deploy should respond with the below CLI message. If it did not successfully deploy, post on [Github Issues](https://github.com/steprz/stepzen-schemas/issues)
+
 ```bash
 Watching /Users/username/Desktop/myapp/config.yaml for configuration changes
 Watching /Users/username/Desktop/myapp for GraphQL changes
@@ -61,6 +63,6 @@ Done! The StepZen Dashboard should be deployed at `http://localhost:5000/foo/bar
 
 ![Localhost](https://res.cloudinary.com/dvfhnc6ui/image/upload/v1614608265/stepzen-localhost-dashboard.png)
 
-## 
+##
 
 Not signed up for StepZen? Try it free here -> https://stepzen.com/request-invite
