@@ -1,21 +1,20 @@
-extend interface Customer {
+extend type Customer {
   allOrders: [Order]
     @materializer(
-      query: "orders"
+      query: "shopifyOrderByCustomer"
       arguments: [{ name: "customerId", field: "id" }]
     )
-  #### You can uncomment the below extensions if you would like to add refunded orders as nested arrays ####
   refundedOrders: [RefundedOrder]
     @materializer(
-      query: "refundedOrders"
+      query: "shopifyRefundedOrderByCustomer"
       arguments: [{ name: "customerId", field: "id" }]
     )
 }
 
-extend interface RefundedOrder {
+extend type RefundedOrder {
   refunds: [Refund]
     @materializer(
-      query: "refunds"
+      query: "shopifyOrderRefunds"
       arguments: [{ name: "orderId", field: "id" }]
     )
 }

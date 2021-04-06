@@ -4,7 +4,7 @@ For a full tutorial on importing schemas into your StepZen project, the main [Re
 
 ## Preparing your Airtable Configuration
 
-Airtable, unlike many other backends like Shopify, does not have a fixed schema. Our template assumes that the Airtable contains [Event Planning](https://airtable.com/templates/event-marketing) tables and data. If you want to learn by just using this example, deploy that template into your Airtable account. If your data is different,we will also explain how to modify our templates to conform to your data in the [How to modify the imported template section](#modify)
+Airtable, unlike many other backends like Shopify, does not have a fixed schema. Our template assumes that the Airtable contains [Event Planning](https://airtable.com/templates/event-marketing) tables and data. If you want to learn by just using this example, deploy that template into your Airtable account. If your data is different, we will also explain how to modify our templates to conform to your data in the [How to modify the imported template section](#modify)
 
 There are two "keys" that you need for connecting to Airtable. One is the `baseid` (which, for all practical purposes is like a database in the MySQL/Postgres sense). Second is the `API Key`, which is a unique key with which to access the specific base. You can find good information on these at [Airtable's API Section](https://airtable.com/api), where you will also see what the API does, and how it returns the data.
 

@@ -4,11 +4,6 @@
   "categories": ["personalization"],
   "config": {
     "default": "holidayapi_default",
-    "questions": [
-      {
-        "name": "holidayapi_config.holidayApiKey",
-        "message": "What is the API key to your Holiday API App?"
-      }
-    ]
+    "questions": []
   }
 }

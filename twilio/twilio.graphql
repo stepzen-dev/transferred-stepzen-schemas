@@ -1,4 +1,4 @@
-interface Message {
+type Message {
   sid: ID!
   accountId: ID
   to: String
@@ -6,12 +6,8 @@ interface Message {
   body: String
 }
 
-type TwilioMessage implements Message {}
-
 type Query {
-  message(sid: ID!, accountId: ID!): Message
-  twilioMessage(sid: ID!, accountId: ID!): TwilioMessage
-    @supplies(query: "message")
+  twilioMessage(sid: ID!, accountId: ID!): Message
     @rest(
       setters: [{ field: "accountId", path: "account_sid" }]
       resultroot: ""

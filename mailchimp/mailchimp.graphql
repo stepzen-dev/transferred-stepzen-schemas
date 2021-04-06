@@ -1,26 +1,19 @@
-interface List {
+type List {
   id: ID!
   name: String
   webId: ID!
   memberCount: Int
 }
 
-type MailChimpList implements List {}
-
-interface Members {
+type Members {
   id: ID!
   emailAddress: String
   status: String
   listId: ID!
 }
 
-type MailChimpMembers implements Members {}
-
 type Query {
-  list(id: ID!): List
-  lists: [List]
-  mailchimpLists: [MailChimpList]
-    @supplies(query: "lists")
+  mailchimpLists: [List]
     @rest(
       setters: [
         { field: "memberCount", path: "stats.member_count" }
@@ -30,8 +23,7 @@ type Query {
       endpoint: "https://anystring:$api_password@$server;.api.mailchimp.com/3.0/lists/"
       configuration: "mailchimp_config"
     )
-  mailchimpList(id: ID!): MailChimpList
-    @supplies(query: "list")
+  mailchimpList(id: ID!): List
     @rest(
       setters: [
         { field: "memberCount", path: "stats.member_count" }
@@ -40,9 +32,7 @@ type Query {
       endpoint: "https://anystring:$api_password@$server;.api.mailchimp.com/3.0/lists/$id"
       configuration: "mailchimp_config"
     )
-  members(id: ID!, listId: ID!): Members
-  mailchimpMembers(id: ID!, listId: ID!): MailChimpMembers
-    @supplies(query: "members")
+  mailchimpMembers(id: ID!, listId: ID!): Members
     @rest(
       setters: [
         { field: "listId", path: "list_id" }
