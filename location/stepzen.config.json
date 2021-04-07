@@ -3,12 +3,7 @@
   "description": "Connecting data from the IP-API Geolocation API to determine the location of website visitor based on browser IP address.",
   "categories": ["personalization"],
   "config": {
-    "default": "ipapi_default",
-    "questions": [
-      {
-        "name": "ipapi_config.ipApiKey",
-        "message": "What is the API key to your IP-API geolocation App?"
-      }
+    "default": "ipapi_default"
     ]
   }
 }
