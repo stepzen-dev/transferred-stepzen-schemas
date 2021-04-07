@@ -4,11 +4,6 @@
   "categories": ["personalization"],
   "config": {
     "default": "owm_default",
-    "questions": [
-      {
-        "name": "owm_config.OpenWeatherMapAppID",
-        "message": "What is the API key to your OpenWeatherMap App?"
-      }
-    ]
+    "questions": []
   }
 }
