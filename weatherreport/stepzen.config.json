@@ -1,8 +1,0 @@
-{
-  "name": "OpenWeatherMap",
-  "description": "Makes current weather conditions available based on latitude/longitude and through the OpenWeatherMap API.",
-  "categories": ["personalization"],
-  "config": {
-    "default": "owm_default"
-  }
-}

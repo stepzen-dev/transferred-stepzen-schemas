@@ -1,7 +1,7 @@
-extend interface Blog {
+extend type Blog {
   author: Person
     @materializer(
-      query: "person"
+      query: "contentfulPerson"
       arguments: [{ name: "id", field: "authorId" }]
     )
 }

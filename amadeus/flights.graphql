@@ -1,4 +1,4 @@
-interface Flight {
+type Flight {
   origin: String!
   price: String
   type: String
@@ -7,12 +7,8 @@ interface Flight {
   returnDate: Date
 }
 
-type AmadeusFlight implements Flight {}
-
 type Query {
-  flights(origin: String!): [Flight]
-  amadeusFlights(origin: String!): [AmadeusFlight]
-    @supplies(query: "flights")
+  amadeusFlights(origin: String!): [Flight]
     @rest(
       setters: [
         { field: "origin", path: "data[].origin" }

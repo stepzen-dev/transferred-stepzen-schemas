@@ -1,7 +1,0 @@
-type DeliveryUPS implements Delivery {}
-
-type Query {
-  deliveryUPS(carrier: String!, trackingId: String!): DeliveryUPS
-    @supplies(query: "delivery")
-    @connector(type: "ups", configuration: "ups_default")
-}

@@ -1,27 +1,20 @@
-interface Person {
+type Person {
   title: String
   name: String!
   email: String
   company: String!
 }
-type ContentfulPerson implements Person {}
 type Query {
-  person(id: ID!): Person
-  contentfulPerson(id: ID!): ContentfulPerson
-    @supplies(query: "person")
+  contentfulPerson(id: ID!): Person
     @rest(
       endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries/$id"
       resultroot: "fields"
-
       configuration: "contentful_config"
     )
-  persons: [Person]
-  contentfulPersons: [ContentfulPerson]
-    @supplies(query: "persons")
+  contentfulPersons: [Person]
     @rest(
       endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries?content_type=person"
       resultroot: "items[].fields"
-
       configuration: "contentful_config"
     )
 }

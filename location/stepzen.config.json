@@ -1,8 +1,0 @@
-{
-  "name": "IP-API",
-  "description": "Connecting data from the IP-API Geolocation API to determine the location of website visitor based on browser IP address.",
-  "categories": ["personalization"],
-  "config": {
-    "default": "ipapi_default"
-  }
-}

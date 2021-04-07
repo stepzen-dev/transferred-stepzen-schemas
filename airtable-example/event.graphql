@@ -1,4 +1,4 @@
-interface Event {
+type Event {
   id: String!
   name: String
   type: String
@@ -6,12 +6,8 @@ interface Event {
   details: String
 }
 
-type AirtableEvent implements Event {}
-
 type Query {
-  event(id: String!): Event
-  airtableEvent(id: String!): AirtableEvent
-    @supplies(query: "event")
+  airtableEvent(id: String!): Event
     @rest(
       setters: [
         { field: "name", path: "fields.Name" }
@@ -19,13 +15,12 @@ type Query {
         { field: "details", path: "fields.Details" }
         { field: "venueId", path: "fields.Venue[]" }
       ]
+
       resultroot: ""
       endpoint: "https://api.airtable.com/v0/$baseid/Events/$id"
       configuration: "airtable_config"
     )
-  events: [Event]
-  airtablesEvents: [AirtableEvent]
-    @supplies(query: "events")
+  airtablesEvents: [Event]
     @rest(
       resultroot: "records[]"
       setters: [
@@ -38,9 +33,7 @@ type Query {
       endpoint: "https://api.airtable.com/v0/$baseid/Events"
       configuration: "airtable_config"
     )
-  searchEvents(type: String!): [Event]
-  airtableSearchEvents(type: String!): [AirtableEvent]
-    @supplies(query: "searchEvents")
+  airtableSearchEvents(type: String!): [Event]
     @rest(
       resultroot: "records[]"
       setters: [

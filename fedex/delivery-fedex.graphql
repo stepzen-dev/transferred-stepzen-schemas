@@ -1,7 +1,9 @@
-type DeliveryFedEx implements Delivery {}
+type Delivery {
+  status: String!
+  statusDate: Date!
+}
 
 type Query {
-  deliveryFedEx(carrier: String!, trackingId: String!): DeliveryFedEx
-    @supplies(query: "delivery")
+  deliveryFedEx(carrier: String!, trackingId: String!): Delivery
     @connector(type: "fedex", configuration: "fedex_default")
 }

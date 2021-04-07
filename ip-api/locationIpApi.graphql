@@ -1,8 +1,15 @@
-type LocationIpApi implements Location {}
+type LocationIpApi {
+  city: String
+  country: String!
+  currency: String
+  ip: String!
+  latitude: Float!
+  longitude: Float!
+  postalCode: String
+}
 
 type Query {
   locationIpApi(ip: String!): LocationIpApi
-    @supplies(query: "location")
     @connector(
       type: "__ipapi_location_ip_connector__"
       configuration: "ipapi_default"

@@ -1,4 +1,4 @@
-interface Blog {
+type Blog {
   title: String!
   slug: String!
   description: String
@@ -6,11 +6,8 @@ interface Blog {
   date: String
   authorId: ID!
 }
-type ContentfulBlog implements Blog {}
 type Query {
-  blog(id: ID!): Blog
-  contentfulBlog(id: ID!): ContentfulBlog
-    @supplies(query: "blog")
+  contentfulBlog(id: ID!): Blog
     @rest(
       endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries/$id"
       resultroot: "fields"
@@ -20,9 +17,7 @@ type Query {
       ]
       configuration: "contentful_config"
     )
-  blogs: [Blog]
-  contentfulBlogs: [ContentfulBlog]
-    @supplies(query: "blogs")
+  contentfulBlogs: [Blog]
     @rest(
       endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries?content_type=blogPost"
       resultroot: "items[].fields"
@@ -32,9 +27,7 @@ type Query {
       ]
       configuration: "contentful_config"
     )
-  searchBlogs(title: String!): [Blog]
-  contentfulSearchBlogs(title: String!): [ContentfulBlog]
-    @supplies(query: "searchBlogs")
+  contentfulSearchBlogs(title: String!): [Blog]
     @rest(
       endpoint: "https://cdn.contentful.com/spaces/$spaceid/entries?content_type=blogPost&fields.title[match]=%22$title%22"
       resultroot: "items[].fields"

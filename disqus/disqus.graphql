@@ -1,14 +1,10 @@
-interface Post {
+type Post {
   id: ID!
   message: String
 }
 
-type DisqusPost implements Post {}
-
 type Query {
-  post(forum: String!): Post
-  disqusPost(forum: String!): DisqusPost
-    @supplies(query: "post")
+  disqusPost(forum: String!): Post
     @rest(
       setters: [
         { field: "message", path: "response[].message" }
