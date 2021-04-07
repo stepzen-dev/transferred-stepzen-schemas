@@ -42,3 +42,4 @@ type Query {
       ]
       configuration: "dev_config"
     )
+}
