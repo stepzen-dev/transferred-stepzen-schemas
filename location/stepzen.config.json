@@ -4,6 +4,5 @@
   "categories": ["personalization"],
   "config": {
     "default": "ipapi_default"
-    ]
   }
 }
