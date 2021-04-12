@@ -1,5 +1,15 @@
 ### Overview
+
 For a full tutorial on importing schemas into your StepZen project, the main [Readme](https://github.com/steprz/stepzen-schemas) of this repository provides step-by-step instructions to do so.
+
+Power your audience engagement and discussions with the Disqus backend.
+
+This schema will include authentication to an endpoint through the Disqus REST API to query instances from a fixed Disqus schema.
+
+## What comes with the Disqus backend <a name="context"></a>
+
+1. Real-time analysis of audience engagement and discussions.
+2. Spam prevention and scanning for accurate marketing trends on the open web.
 
 ## Preparing your Disqus Configuration
 
@@ -9,28 +19,31 @@ For a full tutorial on importing schemas into your StepZen project, the main [Re
 2. Create your API application here, https://help.disqus.com/en/articles/1717083-how-to-create-an-api-application
 
 ## StepZen Import <a href="import"></a>
+
 <em>The StepZen CLI will import the schema and request your authentication configurations. You can add the configurations in the command line or add the configurations after import.</em>
 
 1. Before importing the schema, either create a new project or access your existing project in the command line.
 
 Creating a new StepZen SDL project.
+
 ```bash
 $ mkdir my-app
 $ cd my-app
 ```
 
 Access an existing project
+
 ```bash
 $ cd my-existing-project
 ```
 
-2. Importing the schema.  As mentioned earlier, you can skip the configuration questions by pressing `[Enter]` and adding the configurations manually.
+2. Importing the schema. As mentioned earlier, you can skip the configuration questions by pressing `[Enter]` and adding the configurations manually.
 
 ```bash
 $ stepzen import disqus
 ```
 
-3. Now the project should include the following directory layout in your root folder.  Add your credentials in the config.yaml to properly deploy the StepZen Endpoint.
+3. Now the project should include the following directory layout in your root folder. Add your credentials in the config.yaml to properly deploy the StepZen Endpoint.
 
 ```shell
 🐒➔ tree
@@ -45,6 +58,7 @@ $ stepzen import disqus
 ```
 
 The config.yaml configuration for disqus.
+
 ```bash
   - configuration:
       name: disqus_config
@@ -52,13 +66,14 @@ The config.yaml configuration for disqus.
 ```
 
 4. Start up the StepZen Endpoint. Provide the directory path to deploy your endpoint appropriately.  
-<em>https://accountname.stepzen.net/foo/bar/__graphql</em>
-
+   <em>https://accountname.stepzen.net/foo/bar/__graphql</em>
 
 ```bash
 $ stepzen start foo/bar
 ```
+
 A successfull deploy should respond with the below CLI message. If it did not successfully deploy, post on [Github Issues](https://github.com/steprz/stepzen-schemas/issues)
+
 ```bash
 Watching /Users/username/Desktop/myapp/config.yaml for configuration changes
 Watching /Users/username/Desktop/myapp for GraphQL changes
@@ -75,6 +90,6 @@ Done! The StepZen Dashboard should be deployed at `http://localhost:5000/foo/bar
 
 ![Localhost](https://res.cloudinary.com/dvfhnc6ui/image/upload/v1614608265/stepzen-localhost-dashboard.png)
 
-## 
+##
 
 Not signed up for StepZen? Try it free here -> https://stepzen.com/request-invite

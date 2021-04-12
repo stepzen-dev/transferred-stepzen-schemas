@@ -2,6 +2,15 @@
 
 For a full tutorial on importing schemas into your StepZen project, the main [Readme](https://github.com/steprz/stepzen-schemas) of this repository provides step-by-step instructions to do so.
 
+Power your content management custom shema with the Contentful backend.
+
+This schema will include authentication to an endpoint through the Contentful REST API to query instances from a custom contentful schema.
+
+## What comes with the Contentful backend <a name="context"></a>
+
+1. An enterprise scale content solution with modern usability.
+2. Real-time collaboration for a fast deploy cycle of content.
+
 ## Preparing your Contentful Configuration
 
 Contentful, unlike many other backends like Shopify, does not have a fixed schema. Our template assumes that the Contentful contains [BlogPost](https://github.com/contentful/starter-gatsby-blog) content model and content. If you want to learn by just using this example, add that to your space. If your content is different, we will also explain how to modify our templates to conform to your content in the [How to modify the imported template section](#modify)
