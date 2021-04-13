@@ -4,9 +4,9 @@ For a full tutorial on importing schemas into your StepZen project, the main [Re
 
 Power your app with AI-powered search & discovery from Algolia.
 
-This schema will include authentication to an endpoint through the Algolia <a href="https://shopify.dev/docs/admin-api/rest/reference" name="context">REST API</a> to query instances from your predefined algolia data.
+This schema will include authentication to an endpoint through the Algolia REST API to query instances from your predefined algolia data.
 
-## What comes with the Algolia API <a name="context"></a>
+## What comes with the Algolia Backend <a name="context"></a>
 
 1. Pay-As-You-Go Search Tool.
 2. Real-time, first keystroke AI powered search.

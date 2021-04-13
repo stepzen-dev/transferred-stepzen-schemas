@@ -2,6 +2,15 @@
 
 For a full tutorial on importing schemas into your StepZen project, the main [Readme](https://github.com/steprz/stepzen-schemas) of this repository provides step-by-step instructions to do so.
 
+Power your content management custom shema with the Airtable backend.
+
+This schema will include authentication to an endpoint through the Airtable REST API to query instances from a custom airtable schema.
+
+## What comes with the Airtable backend <a name="context"></a>
+
+1. An enterprise scale content solution with modern usability.
+2. Real-time collaboration for a fast deploy cycle of content.
+
 ## Preparing your Airtable Configuration
 
 Airtable, unlike many other backends like Shopify, does not have a fixed schema. Our template assumes that the Airtable contains [Event Planning](https://airtable.com/templates/event-marketing) tables and data. If you want to learn by just using this example, deploy that template into your Airtable account. If your data is different, we will also explain how to modify our templates to conform to your data in the [How to modify the imported template section](#modify)
