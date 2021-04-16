@@ -31,7 +31,7 @@ Add the name of your project folder at the end of your `stepzen import` command.
 // Create new project with schemas
 $ stepzen import [schema] [my-app]
 // Deploy and run your GraphQL endpoint
-$ stepzen start [folder/name]
+$ stepzen start
 ```
 See the [Hello World](https://my.stepzen.com/docs/helloworld/?utm_source=steprz#starting-with-weather) tutorial for an example of how to use  `stepzen import` followed by `stepzen start` to spin up your live GraphQL endpoint. 
 
@@ -44,7 +44,7 @@ If you already have a project folder (perhaps the one you created doing the [Hel
 $ cd my-app
 $ stepzen import [schema]
 // Deploy and run your GraphQL endpoint
-$ stepzen start [folder/name]
+$ stepzen start
 ```
 
 ### Providing Credentials to Create a `config.yaml`

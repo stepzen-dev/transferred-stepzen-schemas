@@ -66,11 +66,10 @@ The config.yaml configuration for twilio.
       api_secret: {{ auth_token }}
 ```
 
-4. Start up the StepZen Endpoint. Provide the directory path to deploy your endpoint appropriately.  
-   <em>https://accountname.stepzen.net/foo/bar/__graphql</em>
+4. Start up the StepZen Endpoint.
 
 ```bash
-$ stepzen start foo/bar
+$ stepzen start
 ```
 
 A successfull deploy should respond with the below CLI message. If it did not successfully deploy, post on [Github Issues](https://github.com/steprz/stepzen-schemas/issues)
