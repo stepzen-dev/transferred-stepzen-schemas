@@ -1,4 +1,7 @@
-type DeliveryFedEx implements Delivery {}
+type DeliveryFedEx implements Delivery {
+  status: String!
+  statusDate: Date!
+}
 
 type Query {
   deliveryFedEx(carrier: String!, trackingId: String!): DeliveryFedEx

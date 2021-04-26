@@ -1,4 +1,4 @@
-interface WeatherReport {
+type WeatherReport {
   date: Date!
   latitude: Float!
   longitude: Float!
@@ -10,4 +10,8 @@ interface WeatherReport {
 
 type Query {
   weatherReport(latitude: Float!, longitude: Float!): WeatherReport
+    @connector(
+      type: "__openweathermap_weather_location_connector__"
+      configuration: "owm_default"
+    )
 }
