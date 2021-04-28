@@ -1,16 +1,16 @@
 {
-    "name": "Contentful",
-    "description": "",
-    "config": {
-      "questions": [
-        {
-          "name": "contentful_config.Authorization",
-          "message": "Add the Content Delivery API Access Token with the format - Bearer XXXX"
-        },
-        {
-          "name": "airtable_config.spaceid",
-          "message": "What is the space id for your contentful space?"
-        }
-      ]
-    }
+  "name": "Contentful",
+  "description": "",
+  "config": {
+    "questions": [
+      {
+        "name": "contentful_config.Authorization",
+        "message": "Add the Content Delivery API Access Token with the format - Bearer XXXX"
+      },
+      {
+        "name": "airtable_config.spaceid",
+        "message": "What is the space id for your contentful space?"
+      }
+    ]
   }
+}

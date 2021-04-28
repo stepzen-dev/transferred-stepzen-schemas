@@ -1,29 +1,30 @@
 # stepzen-schemas
 
-Looking for a simple and fast way to build a GraphQL API that gets data from popular API or database services, including Airtable, Cloudinary, Mailchimp, Wordpress, FedEx, UPS, and more? [StepZen](https://stepzen.com) enables you to create a GraphQL API on any data source in minutes, starting with a template schema. 
+Looking for a simple and fast way to build a GraphQL API that gets data from popular API or database services, including Airtable, Cloudinary, Mailchimp, Wordpress, FedEx, UPS, and more? [StepZen](https://stepzen.com) enables you to create a GraphQL API on any data source in minutes, starting with a template schema.
 
 These templates are pre-made GraphQL schemas configured with types, queries, and backends, giving you a live GraphQL API in minutes. Then you can easily easily combine, customize, and extend your schema files to combine data from multiple backend data sources.
 
 This repository contains one directory per pre-made GraphQL schemas. Each schema directory contains:
+
 1. One or more `.graphql` files -- the Schema Definition Language (SDL) files that define the types, queries, and connectors for the specified backend.
 2. Zero or one `stepzen.config.json` file - used to build any required configuration settings like keys, secrets etc.
 3. A README describing the schema and providing instructions for its use.
 
 For more information on how to import and deploy your GraphQL API, see this short video (1':08") on youtube >> https://youtu.be/vvfWQZ8kUBI
 
-------
+---
 
-### To Use a Template Schema:  
+### To Use a Template Schema:
 
-1. Log into to your StepZen account. 
+1. Log into to your StepZen account.
 
 Not signed up for StepZen? Try it free here -> https://stepzen.com/request-invite
 
-2.  [Install StepZen](https://my.stepzen.com/docs/setup/setup#1-install-stepzen) 
+2.  [Install StepZen](https://my.stepzen.com/docs/setup/setup#1-install-stepzen)
 
 3.  Import a template schema to (i) start a new project from scratch, or (ii) add functionality to an existing project
 
-**Create a new project from scratch** 
+**Create a new project from scratch**
 
 Add the name of your project folder at the end of your `stepzen import` command.
 
@@ -33,7 +34,8 @@ $ stepzen import [schema] [my-app]
 // Deploy and run your GraphQL endpoint
 $ stepzen start
 ```
-See the [Hello World](https://my.stepzen.com/docs/helloworld/?utm_source=steprz#starting-with-weather) tutorial for an example of how to use  `stepzen import` followed by `stepzen start` to spin up your live GraphQL endpoint. 
+
+See the [Hello World](https://my.stepzen.com/docs/helloworld/?utm_source=steprz#starting-with-weather) tutorial for an example of how to use `stepzen import` followed by `stepzen start` to spin up your live GraphQL endpoint.
 
 **Add a template schema to an existing project**
 
@@ -48,9 +50,10 @@ $ stepzen start
 ```
 
 ### Providing Credentials to Create a `config.yaml`
-When you run `stepzen import` you are asked for your authentication to create your `config.yaml` file. 
- 
-- You can add the credentials in the command line or add the credentials directly in your `config.yaml` file. 
+
+When you run `stepzen import` you are asked for your authentication to create your `config.yaml` file.
+
+- You can add the credentials in the command line or add the credentials directly in your `config.yaml` file.
 - Be sure to add the credentials before `stepzen start` or the endpoint will not work.
 
 ```
@@ -75,7 +78,8 @@ After a successful import, <strong>with or without</strong> credentials added in
 
 1 directories, 4 files
 ```
-Example of multiple SDL files from one import. 
+
+Example of multiple SDL files from one import.
 
 `$ stepzen import shopify my-app`
 
@@ -93,6 +97,7 @@ Example of multiple SDL files from one import.
 
 1 directories, 7 files
 ```
-The `extend.graphql` SDL file is an [directive schema](https://my.stepzen.com/docs/reference/code/#set-of-directives) that uses the @materializer directive to stitch your data together.  Read more about how StepZen directives can unify your data here, https://my.stepzen.com/docs/reference/code/#set-of-directives and take your data to the next level 🚀
+
+The `extend.graphql` SDL file is an [directive schema](https://my.stepzen.com/docs/reference/code/#set-of-directives) that uses the @materializer directive to stitch your data together. Read more about how StepZen directives can unify your data here, https://my.stepzen.com/docs/reference/code/#set-of-directives and take your data to the next level 🚀
 
 Note: All the questions are preconfigured with a `stepzen.config.json` and can be viewed in the directories found in this repo. You can go use this information to properly prep your configurations for the questions following the `stepzen import` command. https://github.com/steprz/stepzen-schemas/blob/main/cloudinary/stepzen.config.json

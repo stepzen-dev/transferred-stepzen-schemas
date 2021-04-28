@@ -1,4 +1,7 @@
-type DeliveryUPS implements Delivery {}
+type DeliveryUPS implements Delivery {
+  status: String!
+  statusDate: Date!
+}
 
 type Query {
   deliveryUPS(carrier: String!, trackingId: String!): DeliveryUPS
