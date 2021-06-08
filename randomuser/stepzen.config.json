@@ -1,5 +1,5 @@
 {
   "name": "RandomUser",
   "description": "Generates random users for testing purposes using the randomuser.me API.",
-  "categories": ["testing"]
+  "categories": ["Dev Tools"]
 }
