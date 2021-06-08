@@ -1,0 +1,105 @@
+type RandomUser {
+  gender: String!
+  title: String!
+  firstName: String!
+  lastName: String!
+  streetNumber: Int!
+  streetName: String!
+  city: String!
+  state: String!
+  country: String!
+  postcode: String!
+  latitude: String!
+  longitude: String!
+  timezoneOffset: String!
+  timezoneDescription: String!
+  email: String!
+  uuid: String!
+  username: String!
+  password: String!
+  salt: String!
+  md5: String!
+  sha1: String!
+  sha256: String!
+  dateOfBirth: Date!
+  age: Int!
+  registeredDate: DateTime!
+  registeredAge: Int!
+  phone: String!
+  cell: String!
+  largePicture: String!
+  mediumPicture: String!
+  thumbnailPicture: String!
+  nationality: String!
+}
+
+type Random {
+  seed: String!
+}
+
+type Query {
+  randomUser: RandomUser
+    @sequence(steps: [{ query: "random" }, { query: "actual" }])
+
+    random: Random
+      @rest(
+        cel: """
+        function genRandom(len) {
+          let result = [];
+          let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+          let charsLength = chars.length;
+
+          for (let i=0; i < len; i++ ) {
+            result.push(chars.charAt(Math.floor(Math.random() * charsLength)));
+          }
+
+          return result.join('');
+        }
+
+        function transformREST(s) {
+          let lenRandom = 100;
+
+          return JSON.stringify({
+            seed: genRandom(lenRandom)
+          });
+        }
+        """
+        endpoint: "https://www.google.com"
+      )
+
+  actual(seed: String!): RandomUser
+    @rest(
+      setters: [
+        { field: "title", path: "name.title" }
+        { field: "firstName", path: "name.first" }
+        { field: "lastName", path: "name.last" }
+        { field: "streetNumber", path: "location.street.number" }
+        { field: "streetName", path: "location.street.name" }
+        { field: "city", path: "location.city" }
+        { field: "state", path: "location.state" }
+        { field: "country", path: "location.country" }
+        { field: "postcode", path: "location.postcode" }
+        { field: "latitude", path: "location.coordinates.latitude" }
+        { field: "longitude", path: "location.coordinates.longitude" }
+        { field: "timezoneOffset", path: "location.timezone.offset" }
+        { field: "timezoneDescription", path: "location.timezone.description" }
+        { field: "uuid", path: "login.uuid" }
+        { field: "username", path: "login.username" }
+        { field: "password", path: "login.password" }
+        { field: "salt", path: "login.salt" }
+        { field: "md5", path: "login.md5" }
+        { field: "sha1", path: "login.sha1" }
+        { field: "sha256", path: "login.sha256" }
+        { field: "dateOfBirth", path: "dob.date" }
+        { field: "age", path: "dob.age" }
+        { field: "registeredDate", path: "registered.date" }
+        { field: "registeredAge", path: "registered.age" }
+        { field: "largePicture", path: "picture.large" }
+        { field: "mediumPicture", path: "picture.medium" }
+        { field: "thumbnailPicture", path: "picture.thumbnail" }
+        { field: "nationality", path: "nat" }
+      ]
+      endpoint: "https://randomuser.me/api?seed=$seed"
+      resultroot: "results[]"
+    )
+}
