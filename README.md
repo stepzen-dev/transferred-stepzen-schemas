@@ -1,3 +1,6 @@
+<h1>Notice: This repository is no longer maintained.</h1>
+<h3>Please refer to https://graphql.stepzen.com for up to date schemas.</h3>
+
 # stepzen-schemas
 
 Looking for a simple and fast way to build a GraphQL API that gets data from popular API or database services, including Airtable, Cloudinary, Mailchimp, Wordpress, FedEx, UPS, and more? [StepZen](https://stepzen.com) enables you to create a GraphQL API on any data source in minutes, starting with a template schema.
